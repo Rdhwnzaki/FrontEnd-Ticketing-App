@@ -19,6 +19,10 @@ import vector from "../images/vector.png";
 import oneway from "../images/oneway.png";
 import roundtrip from "../images/roundtrip.png";
 import next from "../images/next.png";
+import message from "../images/message.png";
+import notif from "../images/notif.png";
+import prof from "../images/prof.png";
+import lay from "../images/lay.png";
 const Assets = {
   logo,
   search,
@@ -41,5 +45,9 @@ const Assets = {
   oneway,
   roundtrip,
   next,
+  message,
+  notif,
+  prof,
+  lay,
 };
 export default Assets;

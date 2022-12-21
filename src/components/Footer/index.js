@@ -33,25 +33,25 @@ function Footer() {
               of the rest
             </h6>
           </div>
-          <div className="col-md-2">
-            <h6 style={{ marginRight: "-115px" }} className="mt-4">
+          <div className="col-md-3 text-start">
+            <h6 style={{ marginLeft: "115px" }} className="mt-4">
               Find Ticket
             </h6>
-            <h6 style={{ marginRight: "-115px" }}>My Booking</h6>
-            <h6 style={{ marginRight: "-115px" }}>Chat</h6>
-            <h6 style={{ marginRight: "-115px" }}>Notification</h6>
+            <h6 style={{ marginLeft: "115px" }}>My Booking</h6>
+            <h6 style={{ marginLeft: "115px" }}>Chat</h6>
+            <h6 style={{ marginLeft: "115px" }}>Notification</h6>
           </div>
           <div className="col-md-1 offset-1">
             <img
               src={Assets.apple}
               alt=""
-              style={{ marginLeft: "55px  " }}
+              style={{ marginLeft: "-55px  " }}
               className="mb-3 mt-4"
             />
-            <img src={Assets.gplay} alt="" style={{ marginLeft: "55px  " }} />
+            <img src={Assets.gplay} alt="" style={{ marginLeft: "-55px  " }} />
           </div>
           <div className="col-md-3 offset-1">
-            <div className="row mt-4" style={{ marginLeft: "200px" }}>
+            <div className="row mt-3" style={{ marginLeft: "85px" }}>
               <div className="col-md-1">
                 <img src={Assets.fb} alt="" />
               </div>

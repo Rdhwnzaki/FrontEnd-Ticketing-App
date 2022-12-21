@@ -1,16 +1,17 @@
 import React from "react";
 import Footer from "../../components/Footer";
-import Navbar from "../../components/Navbar";
+import Navbar from "../../components/NavbarBefore";
 import "./index.css";
 import SwiperCarousel from "../../components/SwiperCarousel";
 import CardDestinations from "../../components/CardDestinations";
 import Assets from "../../images";
+import NavbarAfter from "../../components/NavbarAfter";
 
 function Explore() {
   const token = localStorage.getItem("token");
   return (
     <div>
-      {token ? <Navbar /> : <Navbar />}
+      {token ? <NavbarAfter /> : <Navbar />}
       <div className="container" style={{ marginTop: "130px" }}>
         <div className="row">
           <div className="col-md-6" style={{ marginLeft: "-200px" }}>

@@ -130,8 +130,14 @@ function ModalFind() {
                 width: "460px",
               }}
             >
-              SEARCH FLIGHT{" "}
-              <img src={Assets.next} alt="" style={{ marginLeft: "60px" }} />
+              <h6 className="text-start" style={{ marginTop: "15px" }}>
+                SEARCH FLIGHT
+              </h6>
+              <img
+                src={Assets.next}
+                alt=""
+                style={{ marginLeft: "330px", marginTop: "-60px" }}
+              />
             </button>
           </Modal.Title>
         </Modal.Header>
