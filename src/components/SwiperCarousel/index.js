@@ -18,8 +18,8 @@ function SwiperCarousel() {
           marginTop: "100px",
         }}
       >
-        <h6 className="pt-5">TOP 10</h6>
-        <h5 className="mb-5">Top 10 destinations</h5>
+        <h6 className="pt-5 text-center">TOP 10</h6>
+        <h5 className="mb-5 text-center">Top 10 destinations</h5>
         <Swiper
           slidesPerView={5}
           spaceBetween={2}
@@ -40,7 +40,7 @@ function SwiperCarousel() {
                 alt=""
                 style={{ borderRadius: "50%", border: "4px solid #fff" }}
               />
-              <h6 className="mt-4">PARIS</h6>
+              <h6 className="mt-4 ms-5">PARIS</h6>
             </section>
           </SwiperSlide>
           <SwiperSlide>
@@ -50,7 +50,7 @@ function SwiperCarousel() {
                 alt=""
                 style={{ borderRadius: "50%", border: "4px solid #fff" }}
               />
-              <h6 className="mt-4">BALI</h6>
+              <h6 className="mt-4 ms-5">BALI</h6>
             </section>
           </SwiperSlide>
           <SwiperSlide>
@@ -60,7 +60,7 @@ function SwiperCarousel() {
                 alt=""
                 style={{ borderRadius: "50%", border: "4px solid #fff" }}
               />
-              <h6 className="mt-4">SINGAPORE</h6>
+              <h6 className="mt-4 ms-4">SINGAPORE</h6>
             </section>
           </SwiperSlide>
           <SwiperSlide>
@@ -70,7 +70,7 @@ function SwiperCarousel() {
                 alt=""
                 style={{ borderRadius: "50%", border: "4px solid #fff" }}
               />
-              <h6 className="mt-4">AGRA</h6>
+              <h6 className="mt-4 ms-5">AGRA</h6>
             </section>
           </SwiperSlide>
           <SwiperSlide>
@@ -80,7 +80,7 @@ function SwiperCarousel() {
                 alt=""
                 style={{ borderRadius: "50%", border: "4px solid #fff" }}
               />
-              <h6 className="mt-4">SYDNEY</h6>
+              <h6 className="mt-4 ms-5">SYDNEY</h6>
             </section>
           </SwiperSlide>
           <SwiperSlide>
@@ -90,7 +90,7 @@ function SwiperCarousel() {
                 alt=""
                 style={{ borderRadius: "50%", border: "4px solid #fff" }}
               />
-              <h6 className="mt-4">PARIS</h6>
+              <h6 className="mt-4 ms-5">PARIS</h6>
             </section>
           </SwiperSlide>
           <SwiperSlide>
@@ -100,7 +100,7 @@ function SwiperCarousel() {
                 alt=""
                 style={{ borderRadius: "50%", border: "4px solid #fff" }}
               />
-              <h6 className="mt-4">BALI</h6>
+              <h6 className="mt-4 ms-5">BALI</h6>
             </section>
           </SwiperSlide>
           <SwiperSlide>
@@ -110,7 +110,7 @@ function SwiperCarousel() {
                 alt=""
                 style={{ borderRadius: "50%", border: "4px solid #fff" }}
               />
-              <h6 className="mt-4">SINGAPORE</h6>
+              <h6 className="mt-4 ms-4">SINGAPORE</h6>
             </section>
           </SwiperSlide>
           <SwiperSlide>
@@ -120,7 +120,7 @@ function SwiperCarousel() {
                 alt=""
                 style={{ borderRadius: "50%", border: "4px solid #fff" }}
               />
-              <h6 className="mt-4">AGRA</h6>
+              <h6 className="mt-4 ms-5">AGRA</h6>
             </section>
           </SwiperSlide>
           <SwiperSlide>
@@ -130,7 +130,7 @@ function SwiperCarousel() {
                 alt=""
                 style={{ borderRadius: "50%", border: "4px solid #fff" }}
               />
-              <h6 className="mt-4">SYDNEY</h6>
+              <h6 className="mt-4 ms-5">SYDNEY</h6>
             </section>
           </SwiperSlide>
         </Swiper>

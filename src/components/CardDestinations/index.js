@@ -17,7 +17,7 @@ function CardDestinations() {
         </div>
         <div className="row mb-5">
           <div className="col-md-3">
-            <h6 style={{ marginLeft: "-30px" }}>Trending destinations</h6>
+            <h5 style={{ marginLeft: "0px" }}>Trending destinations</h5>
           </div>
           <div className="col-md-3 offset-5">
             <h6 style={{ color: "#2395FF", marginLeft: "240px" }}>View all</h6>
@@ -55,7 +55,7 @@ function CardDestinations() {
                     width: "88px",
                     fontSize: "13px",
                     border: "none",
-                    marginLeft: "-80px",
+                    marginLeft: "0px",
                   }}
                 >
                   15 Airlines
@@ -73,7 +73,11 @@ function CardDestinations() {
                     marginTop: "-30px",
                   }}
                 >
-                  <img src={Assets.btnback} alt="" />
+                  <img
+                    src={Assets.btnback}
+                    alt=""
+                    style={{ marginLeft: "10px" }}
+                  />
                 </div>
               </div>
             </div>
@@ -104,7 +108,7 @@ function CardDestinations() {
                     width: "88px",
                     fontSize: "13px",
                     border: "none",
-                    marginLeft: "-80px",
+                    marginLeft: "0px",
                   }}
                 >
                   15 Airlines
@@ -122,7 +126,11 @@ function CardDestinations() {
                     marginTop: "-30px",
                   }}
                 >
-                  <img src={Assets.btnback} alt="" />
+                  <img
+                    src={Assets.btnback}
+                    alt=""
+                    style={{ marginLeft: "10px" }}
+                  />
                 </div>
               </div>
             </div>
@@ -153,7 +161,7 @@ function CardDestinations() {
                     width: "88px",
                     fontSize: "13px",
                     border: "none",
-                    marginLeft: "-80px",
+                    marginLeft: "0px",
                   }}
                 >
                   15 Airlines
@@ -171,7 +179,11 @@ function CardDestinations() {
                     marginTop: "-30px",
                   }}
                 >
-                  <img src={Assets.btnback} alt="" />
+                  <img
+                    src={Assets.btnback}
+                    alt=""
+                    style={{ marginLeft: "10px" }}
+                  />
                 </div>
               </div>
             </div>
@@ -202,7 +214,7 @@ function CardDestinations() {
                     width: "88px",
                     fontSize: "13px",
                     border: "none",
-                    marginLeft: "-80px",
+                    marginLeft: "0px",
                   }}
                 >
                   15 Airlines
@@ -220,7 +232,11 @@ function CardDestinations() {
                     marginTop: "-30px",
                   }}
                 >
-                  <img src={Assets.btnback} alt="" />
+                  <img
+                    src={Assets.btnback}
+                    alt=""
+                    style={{ marginLeft: "10px" }}
+                  />
                 </div>
               </div>
             </div>
@@ -251,7 +267,7 @@ function CardDestinations() {
                     width: "88px",
                     fontSize: "13px",
                     border: "none",
-                    marginLeft: "-80px",
+                    marginLeft: "0px",
                   }}
                 >
                   15 Airlines
@@ -269,7 +285,11 @@ function CardDestinations() {
                     marginTop: "-30px",
                   }}
                 >
-                  <img src={Assets.btnback} alt="" />
+                  <img
+                    src={Assets.btnback}
+                    alt=""
+                    style={{ marginLeft: "10px" }}
+                  />
                 </div>
               </div>
             </div>
@@ -300,7 +320,7 @@ function CardDestinations() {
                     width: "88px",
                     fontSize: "13px",
                     border: "none",
-                    marginLeft: "-80px",
+                    marginLeft: "0px",
                   }}
                 >
                   15 Airlines
@@ -318,7 +338,11 @@ function CardDestinations() {
                     marginTop: "-30px",
                   }}
                 >
-                  <img src={Assets.btnback} alt="" />
+                  <img
+                    src={Assets.btnback}
+                    alt=""
+                    style={{ marginLeft: "10px" }}
+                  />
                 </div>
               </div>
             </div>
@@ -349,7 +373,7 @@ function CardDestinations() {
                     width: "88px",
                     fontSize: "13px",
                     border: "none",
-                    marginLeft: "-80px",
+                    marginLeft: "0px",
                   }}
                 >
                   15 Airlines
@@ -367,7 +391,11 @@ function CardDestinations() {
                     marginTop: "-30px",
                   }}
                 >
-                  <img src={Assets.btnback} alt="" />
+                  <img
+                    src={Assets.btnback}
+                    alt=""
+                    style={{ marginLeft: "10px" }}
+                  />
                 </div>
               </div>
             </div>
@@ -398,7 +426,7 @@ function CardDestinations() {
                     width: "88px",
                     fontSize: "13px",
                     border: "none",
-                    marginLeft: "-80px",
+                    marginLeft: "0px",
                   }}
                 >
                   15 Airlines
@@ -416,7 +444,11 @@ function CardDestinations() {
                     marginTop: "-30px",
                   }}
                 >
-                  <img src={Assets.btnback} alt="" />
+                  <img
+                    src={Assets.btnback}
+                    alt=""
+                    style={{ marginLeft: "10px" }}
+                  />
                 </div>
               </div>
             </div>
@@ -447,7 +479,7 @@ function CardDestinations() {
                     width: "88px",
                     fontSize: "13px",
                     border: "none",
-                    marginLeft: "-80px",
+                    marginLeft: "0px",
                   }}
                 >
                   15 Airlines
@@ -465,7 +497,11 @@ function CardDestinations() {
                     marginTop: "-30px",
                   }}
                 >
-                  <img src={Assets.btnback} alt="" />
+                  <img
+                    src={Assets.btnback}
+                    alt=""
+                    style={{ marginLeft: "10px" }}
+                  />
                 </div>
               </div>
             </div>
@@ -496,7 +532,7 @@ function CardDestinations() {
                     width: "88px",
                     fontSize: "13px",
                     border: "none",
-                    marginLeft: "-80px",
+                    marginLeft: "0px",
                   }}
                 >
                   15 Airlines
@@ -514,7 +550,11 @@ function CardDestinations() {
                     marginTop: "-30px",
                   }}
                 >
-                  <img src={Assets.btnback} alt="" />
+                  <img
+                    src={Assets.btnback}
+                    alt=""
+                    style={{ marginLeft: "10px" }}
+                  />
                 </div>
               </div>
             </div>
