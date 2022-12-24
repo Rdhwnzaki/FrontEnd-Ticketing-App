@@ -7,7 +7,7 @@
 .colorp{
     background-color: rgb(246, 246, 247);
     width: 800px;
-    height: 550px;
+    height: 500px;
    margin: 0 auto;
    border-radius: 8px;
 }
@@ -21,8 +21,8 @@
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
-    padding-bottom: 10px;
-    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
 }
 .tittle img {
     height: 36px;

@@ -1,101 +1,121 @@
-// import React from "react";
 import React, {useEffect, useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 import styles from './profile.module.css';
-import phot from '../../assets/poto.png';
+import phot from '../../assets/iconuser.png';
 import location from '../../assets/location.png';
 import card from '../../assets/card.png';
-import user from '../../assets/user.png';
+import icon from '../../assets/user.png';
 import star from '../../assets/star.png';
 import setting from '../../assets/setting.png';
 import log from '../../assets/logout.png';
 import rowblue from '../../assets/blue.png';
 import rowgrey from '../../assets/grey.png';
 import rowred from '../../assets/red.png';
-// import { useSelector, useDispatch } from "react-redux";
-// import { editProfile } from "../../redux/actions/profileRedux";
 
 function Profile() {
 
-  const [data,setData] = useState([])
-  const photo=data.photo
-  const [dataProfile, setDataPofile] = useState([])
-  const id=data.id
+  const [data, setData] = useState([]);
+  const token = localStorage.getItem("token");
+  const navigate = useNavigate ();
+  const user= {
+    headers: {
+    Authorization: `Bearer ${token}`,
+  }};
+// console.log("ini tokennyaaaa=", token);
 
-  useEffect(()=>{
-    const getProfile = async () =>{
-        try {         
-            // const token = localStorage.getItem('token')
-            const result = await axios({
-              method: 'GET',
-              url: `http://localhost:3006/auth/user`,
-              headers: {
-                'Authorization' : `Bearer ${localStorage.getItem('token')}`
-              }
-            })
-            setData(result.data.data)
-        } catch (error) {
-            console.log(error);
-        }
-    }
-    getProfile()
-    }, [])
- 
-  const handleUpload = (e) => {
-    const handle = e.target.files[0]
-    setDataPofile(handle);
+  useEffect(() => {
+    axios
+    .get("http://localhost:3006/auth/user", user)
+    .then ((res) => {
+      console.log("get data succes");
+      console.log(res.data);
+      res.data &&  setData(res.data.data[0]);
+    })
+    .catch((err) => {
+      console.log("get data fail");
+      console.log(err);
+    });
+  }, [])
+
+  const [photo, setPhoto] = useState(null);
+  const [updateData, setUpdateData] = useState({
+    email: data.email,
+    fullname: data.fullname,
+    phone: data.phone,
+    city: data.city,
+    address: data.address,
+    postcode: data.postcode
+  })
+
+  const users= {
+    headers: {
+    Authorization: `Bearer ${token}`,
+    "content-type": "multipart/form-data",
+  },};
+
+  const handleData = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("fullname", updateData.fullname);
+    formData.append("email", updateData.email);
+    formData.append("phone", updateData.phone);
+    formData.append("city", updateData.city);
+    formData.append("address", updateData.address);
+    formData.append("postcode", updateData.postcode);
+    formData.append("photo", photo);
+    console.log(formData, "data dari handle data update")
+  axios
+  .put(`http://localhost:3006/auth/update`, formData, users, {
+    "content-type": "multipart/form-data",
+   })
+   .then ((res) => {
+    console.log("Update profile succes");
+    console.log(res);
+    window.location.reload(false);
+    Swal.fire("Success", "Update profile success", "success");
+  })
+  .catch((err) => {
+    console.log("Update data profile failed");
+    console.log(err);
+    Swal.fire("Warning", "Update profile failed", "error");
+  });
+ };
+
+const handleLogout = async () =>{
+  await localStorage.clear();
+  Swal.fire("Logout", "Logout success", "success");
+  navigate("/login")
+ };
+
+const handlePhotoChange = (e) =>{
+  setPhoto(e.target.files[0])
+  console.log(e.target.files[0])
+};
+
+const handleChange = (e) => {
+  setUpdateData({
+    ...updateData,
+    [e.target.name]:e.target.value
+  })
+  console.log(data)
 }
-
-  const handleUploadData = async(e) => {
-      e.preventDefault()
-      const token = localStorage.getItem('token')
-      console.log(token);
-      const formData = new FormData()
-        formData.append("fullname", dataProfile.fullname);
-        formData.append("email", dataProfile.email);
-        formData.append("phone", dataProfile.phone);
-        formData.append("city", dataProfile.city);
-        formData.append("address", dataProfile.address);
-        formData.append("photo", dataProfile);
-        formData.append("postcode", dataProfile.postcode);
-      try {
-          const updateData = await axios({
-              method: 'PUT',
-              url: `http://localhost:3006/auth/${id}`,
-              data: formData,
-              headers: {
-                  "Content-Type": "multipart/form-data",
-                  "authorization": `Bearer ${token}`
-              }
-          })
-          alert('Update Photo Sucess')
-          console.log(updateData);
-      } catch (error) {
-          console.log(error);
-      }
-  }
-
-  const handleChange = (e) => {
-    const newdata = { ...dataProfile };
-    newdata[e.target.fullname] = e.target.value;
-    setDataPofile(newdata);
-  };
-
 
   return (
       <div className={styles.container}>
         <div className={styles.profile}>
           <div className={styles.side1}>
-          {photo ?
-            <img src={data.photo} alt="" className={styles.img} /> :
-             <img src={phot} alt="" className={styles.img} />
-            }
+          {data.photo === null ?(
+              <img src={phot} alt="" className={styles.img} /> ) : (
+              <img src={data.photo} alt="" className={styles.img} />
+            )}
             <div className={styles.file}>
               <label htmlFor="files" className="btn">Select Photo</label>
-              <input type="file" id="files" name="files" onChange={handleUpload}/>
+              <input type="file" id="files" name="photo" onChange={handlePhotoChange}/>
             </div>
             <div className={styles.name}>
-            <h3>{data.fullnamee}</h3>
+            <h3>{data.fullname}</h3>
               <img src={location} alt="" />
               <span>{data.city}, {data.address}</span>
             </div>
@@ -105,7 +125,7 @@ function Profile() {
             </div>
             <img src={card} alt="" className={styles.imgcard} />
             <div className={styles.span}>
-              <img src={user} alt=""/>
+              <img src={icon} alt=""/>
               <span className={styles.prof}> Profile </span>
                 <img src={rowblue} alt="" className={styles.panah} style={{marginLeft:"10px"}} />
             </div>
@@ -119,38 +139,36 @@ function Profile() {
                 <span> Setting </span>
                 <img src={rowgrey} alt="" className={styles.panah} style={{marginLeft:"58px"}} />
             </div>
-            <div className={styles.span}>
+            <div onClick={handleLogout} className={styles.span}>
                 <img src={log} alt="" />
                 <span className={styles.log}> Logout </span>
                 <img src={rowred} alt="" className={styles.panah} style={{marginLeft:"10px"}} />
             </div>
           </div>
           <div className={styles.side2}>
-            {/* <div> */}
-                <h5> Profile </h5>
-                <h3> Profile </h3>
-            {/* </div> */}
+            <h5> Profile </h5>
+            <h3> Profile </h3>
             <div className={styles.input}>
-            <div className={styles.contact}>
+              <div className={styles.contact}>
                 <h6> Contact </h6>
                 <p> Email </p>
-                <input type="email" name="email" placeholder={data.email } onChange={(e) => handleChange(e)} value={dataProfile.email}/>
+                <input type="email" name="email" placeholder={data.email } onChange={(e) => handleChange(e)} value={updateData.email}/>
                 <p> Phone Number </p>
-                <input type="number" name="phone" placeholder={data.phone} onChange={(e) => handleChange(e)} value={dataProfile.phone} />
+                <input type="number" name="phone" placeholder={data.phone} onChange={(e) => handleChange(e)} value={updateData.phone} />
             </div>
             <div className={styles.biodata}>
                 <h6> Biodata </h6>
                 <p> Fullname </p>
-                <input type="text" name="fullname" placeholder={data.fullname} onChange={(e) => handleChange(e)} value={dataProfile.fullname} />
+                <input type="text" name="fullname" placeholder={data.fullname} onChange={(e) => handleChange(e)} value={updateData.fullname} />
                 <p> City </p>
-                <input type="text" name="city" placeholder={data.city} onChange={(e) => handleChange(e)} value={dataProfile.city}  />
+                <input type="text" name="city" placeholder={data.city} onChange={(e) => handleChange(e)} value={updateData.city}  />
                 <p> Address </p>
-                <input type="text" name="address" placeholder={data.address} onChange={(e) => handleChange(e)} value={dataProfile.address} />
+                <input type="text" name="address" placeholder={data.address} onChange={(e) => handleChange(e)} value={updateData.address} />
                 <p> Post Code </p>
-                <input type="text" name="postcode" placeholder={data.postcode} onChange={(e) => handleChange(e)} value={dataProfile.postCode} />
+                <input type="text" name="postcode" placeholder={data.postcode} onChange={(e) => handleChange(e)} value={updateData.postcode} />
             </div>
             </div>
-            <button type="submit" onClick={(e) => handleUploadData(e)}> Save </button>
+            <button type="submit" onClick={(e) => handleData(e)}> Save </button>
           </div>
         </div>
       </div>  
