@@ -1,8 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import style from "./flight.module.css";
 import assets from "../../assets";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Flight = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const [data, setData] = useState([]);
+
+  const getFlightData = async (url) => {
+    let token = localStorage.getItem("token");
+    console.log("My token", token);
+    try {
+      const res = await axios.get(url, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setData(res.data.data);
+      console.log(res.data.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    let url = `http://localhost:3006/ticket/getstockticket`;
+    getFlightData(url);
+  }, []);
+
   return (
     <div className={style.customContainer}>
       <div className={style.customNav}>
