@@ -1,40 +1,66 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../components/NavbarBefore";
 import NavbarAfter from "../../components/NavbarAfter";
 import Footer from "../../components/Footer";
 import "./index.css";
 import Assets from "../../images";
+import axios from "axios";
+import ModalPhoto from "../../components/ModalPhoto";
+import StatusTicket from "../../components/StatusTicket";
 
 function MyBooking() {
+  const [data, setData] = useState(null);
   const token = localStorage.getItem("token");
+  const user = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  useEffect(() => {
+    axios
+      .get("http://localhost:3006/auth/user", user)
+      .then((res) => {
+        console.log("Get detail user success");
+        console.log(res.data);
+        res.data && setData(res.data.data);
+      })
+      .catch((err) => {
+        console.log("Get detail user fail");
+        console.log(err);
+      });
+  }, []);
   return (
     <div>
       {token ? <NavbarAfter /> : <Navbar />}
       <div className="body2 py-5">
         <div className="container p-5">
           <div className="row">
-            <div className="col-md-3 bg-white rounded-3 shadow">
+            <div
+              className="col-md-3 bg-white rounded-3 shadow"
+              style={{ height: "600px" }}
+            >
               <div>
                 <img
-                  src={Assets.prof2}
+                  src={data ? data[0].photo : "data not found"}
                   alt=""
                   style={{
                     borderRadius: "50%",
                     border: "3px solid #2395FF",
                     marginTop: "30px",
+                    height: "120px",
+                    width: "120px",
                   }}
                 />
               </div>
-              <button
-                className="btn mt-4"
-                style={{ borderColor: "#2395FF", color: "#2395FF" }}
-              >
-                Select Photo
-              </button>
-              <h6 className="mt-4">Mike Kowalski</h6>
+              <ModalPhoto />
+              <h6 className="mt-4">
+                {data ? data[0].fullname : "data not found"}
+              </h6>
               <h6 style={{ fontSize: "10px" }}>
                 {" "}
-                <img src={Assets.map} alt="" /> Medan, Indonesia
+                <img src={Assets.map} alt="" />
+                {data ? data[0].city : "data not found"},
+                {data ? data[0].address : "data not found"}
               </h6>
               <div className="row mt-4">
                 <div className="col-md-1">
@@ -48,7 +74,9 @@ function MyBooking() {
                 className="btn mt-3"
                 style={{ backgroundColor: "#2395FF", width: "280px" }}
               >
-                <h6 className="text-white text-start">4441 1235 5512 5551</h6>
+                <h6 className="text-white text-start">
+                  {data ? data[0].phone : "data not found"}
+                </h6>
                 <div className="row">
                   <div className="col-3">
                     <h6 style={{ fontSize: "10px", color: "#AEFAFF" }}>
@@ -147,12 +175,7 @@ function MyBooking() {
                     <h6 className="text-start">Status</h6>
                   </div>
                   <div className="col-3 my-2 offset-1">
-                    <button
-                      className="btn"
-                      style={{ backgroundColor: "#FF7F23", color: "white" }}
-                    >
-                      Waiting for payment
-                    </button>
+                    <StatusTicket />
                   </div>
                   <div className="col-3 offset-3">
                     <h6 className="text-end" style={{ color: "#2395FF" }}>
@@ -185,12 +208,7 @@ function MyBooking() {
                     <h6 className="text-start">Status</h6>
                   </div>
                   <div className="col-3 my-2 offset-1">
-                    <button
-                      className="btn"
-                      style={{ backgroundColor: "#4FCF4D", color: "white" }}
-                    >
-                      Eticket issued
-                    </button>
+                    <StatusTicket />
                   </div>
                   <div className="col-3 offset-3">
                     <h6 className="text-end" style={{ color: "#2395FF" }}>
