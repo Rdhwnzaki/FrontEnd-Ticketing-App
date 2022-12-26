@@ -45,10 +45,10 @@ function Footer() {
             <img
               src={Assets.apple}
               alt=""
-              style={{ marginLeft: "-55px  " }}
+              style={{ marginLeft: "-115px  " }}
               className="mb-3 mt-4"
             />
-            <img src={Assets.gplay} alt="" style={{ marginLeft: "-55px  " }} />
+            <img src={Assets.gplay} alt="" style={{ marginLeft: "-115px  " }} />
           </div>
           <div className="col-md-3 offset-1">
             <div className="row mt-3" style={{ marginLeft: "85px" }}>
@@ -74,12 +74,12 @@ function Footer() {
 
         <div className="row mt-5 text-secondary">
           <div className="col-md-6">
-            <h6 style={{ marginLeft: "-370px" }}>
+            <h6 style={{ marginLeft: "0px" }}>
               © Ankasa. All Rights Reserved.
             </h6>
           </div>
           <div className="col-md-6">
-            <h6 style={{ marginLeft: "350px" }}>
+            <h6 style={{ marginLeft: "420px" }}>
               <FiMapPin className="me-2" />
               Jakarta Indonesia
             </h6>

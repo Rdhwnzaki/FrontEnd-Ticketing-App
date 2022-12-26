@@ -11,6 +11,7 @@ import Explore from "../pages/Explore";
 import Payment from "../pages/Payment";
 import Profile from "../pages/Profile";
 import BookingPass from "../pages/BookingPass";
+import MyBooking from "../pages/MyBooking";
 
 const Router = () => {
   return (
@@ -27,6 +28,7 @@ const Router = () => {
         <Route path="/payment" element={<Payment />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/bookingpass" element={<BookingPass />} />
+        <Route path="/mybooking" element={<MyBooking />} />
       </Routes>
     </BrowserRouter>
   );

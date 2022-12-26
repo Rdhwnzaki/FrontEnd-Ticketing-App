@@ -14,18 +14,18 @@ function Explore() {
       {token ? <NavbarAfter /> : <Navbar />}
       <div className="container" style={{ marginTop: "130px" }}>
         <div className="row">
-          <div className="col-md-6" style={{ marginLeft: "-200px" }}>
+          <div className="col-md-6" style={{ marginLeft: "80px" }}>
             <h1>Find your</h1>
             <h1
               style={{
                 color: "#2395FF",
-                marginLeft: "298px",
+                marginLeft: "180px",
                 marginTop: "-55px",
               }}
             >
               Flight
             </h1>
-            <h6 className="text-secondary" style={{ marginLeft: "90px" }}>
+            <h6 className="text-secondary" style={{ marginLeft: "0px" }}>
               and explore the world with us
             </h6>
           </div>
@@ -33,12 +33,12 @@ function Explore() {
         <img
           src={Assets.img2}
           alt=""
-          style={{ marginLeft: "976px", marginTop: "-180px" }}
+          style={{ marginLeft: "978px", marginTop: "-180px" }}
         />
         <img
           src={Assets.img1}
           alt=""
-          style={{ marginLeft: "-900px", marginTop: "-140px" }}
+          style={{ marginLeft: "-120px", marginTop: "-140px" }}
         />
       </div>
       <CardDestinations />

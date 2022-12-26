@@ -16,7 +16,7 @@ function Payment() {
   const token = localStorage.getItem("token");
   return (
     <div>
-      {token ? <Navbar /> : <NavbarAfter />}
+      {token ? <NavbarAfter /> : <Navbar />}
       <div className="body py-5">
         <div className="container bg-white p-5">
           <div className="row">
