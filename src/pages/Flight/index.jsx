@@ -11,6 +11,11 @@ const Flight = () => {
 
   const [data, setData] = useState([]);
 
+  const [search, setSearch] = useState("");
+  const [limit, setLimit] = useState(5);
+  const [page, setPage] = useState(1);
+  const [pagination, setPagination] = useState([]);
+
   const getFlightData = async (url) => {
     let token = localStorage.getItem("token");
     console.log("My token", token);
@@ -29,8 +34,27 @@ const Flight = () => {
 
   useEffect(() => {
     let url = `http://localhost:3006/ticket/getstockticket`;
+    if (limit !== "5") {
+      url = `${url}?limit=${limit}`;
+    } else {
+      url = `${url}&limit=5`;
+    }
+    if (page !== "1") {
+      url = `${url}&page=${page}`;
+    }
+    if (search !== "") {
+      url = `${url}&search=${search}`;
+    }
     getFlightData(url);
+  }, [search, limit, page]);
+
+  useEffect(() => {
+    getFlightData();
   }, []);
+
+  const resetFilter = () => {
+    setSearch("");
+  };
 
   return (
     <div className={style.customContainer}>
@@ -40,7 +64,13 @@ const Flight = () => {
           <p>Angkasa</p>
         </div>
         <div className={style.navSearch}>
-          <input type="search" />
+          <input
+            type="search"
+            id="search"
+            placeholder="Search..."
+            onChange={(e) => setSearch(e.target.value.toLowerCase())}
+            required
+          />
         </div>
         <div className={style.navRoute}>
           <div>Find ticket</div>
@@ -106,7 +136,9 @@ const Flight = () => {
           <div className={style.blFilter}>
             <div className={style.blfHead}>
               <p className={style.blfhFilter}>Filter</p>
-              <button className={style.blfhReset}>Reset</button>
+              <button onClick={resetFilter} className={style.blfhReset}>
+                Reset
+              </button>
             </div>
             <div className={style.blfBody}>
               <div className={style.blfBodyValue}>
@@ -322,78 +354,57 @@ const Flight = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className={style.basisRight}>
-          <div className={style.brFlight}>
-            <div className={style.brSelect}>
-              <div className={style.brfHead}>
-                <p className={style.brfhSelect}>Select Ticket</p>
-                <div className="d-flex flex-row gap-2">
-                  <button className={style.brfhSortby}>Sort by</button>
-                  <img src={assets.sortby} alt="" className={style.whSortby} />
-                </div>
-              </div>
-              <div className={style.brfBody}>
-                <div className={style.brfBodyValue}>
-                  <div className="d-flex flex-column gap-3">
-                    <div className="d-flex flex-row gap-4">
-                      <div>
-                        <img src={assets.brftlogo} alt="" />
-                      </div>
-                      <div className="mt-3">
-                        <p className={style.flightName}>Garuda Indonesia</p>
-                      </div>
-                    </div>
-                    <div className="d-flex flex-row justify-content-between">
-                      <div className="d-flex flex-row gap-4">
-                        <div className="d-flex flex-column">
-                          <p className={style.codeFlight}>IDN</p>
-                          <p className={style.departureTime}>12.00</p>
-                        </div>
-                        <div>
-                          <img
-                            src={assets.airlinespace}
-                            alt=""
-                            className="mt-2"
+                <div className="accordion" id="airlines">
+                  <div className="accordion-item">
+                    <h2 className="accordion-header" id="header-airlines">
+                      <button
+                        className="accordion-button"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#data-airlines"
+                        aria-expanded="true"
+                        aria-controls="data-airlines"
+                      >
+                        <strong>Airlines</strong>
+                      </button>
+                    </h2>
+                    <div
+                      id="data-airlines"
+                      className="accordion-collapse collapse show"
+                      aria-labelledby="header-airlines"
+                      data-bs-parent="#airlines"
+                    >
+                      <div className="accordion-body">
+                        <div className="d-flex flex-row justify-content-between mt-2">
+                          <span>Garuda Indonesia</span>
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            name="garuda"
+                            value="Garuda Indonesia"
+                            onChange={(e) => setSearch(e.target.value)}
                           />
                         </div>
-                        <div className="d-flex flex-column">
-                          <p className={style.codeFlight}>JPN</p>
-                          <p className={style.arrivalTime}>14.00</p>
+                        <div className="d-flex flex-row justify-content-between mt-2">
+                          <span>Air Asia</span>
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            name="airaisa"
+                            value="Air Asia"
+                            onChange={(e) => setSearch(e.target.value)}
+                          />
                         </div>
-                      </div>
-                      <div className="mt-2">
-                        <p className={style.spaceTime}>3 hours 11 minutes</p>
-                      </div>
-                      <div className="d-flex flex-row gap-3 mt-2">
-                        <div>
-                          <img src={assets.luggage} alt="" />
+                        <div className="d-flex flex-row justify-content-between mt-2">
+                          <span>Lion Air</span>
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            name="lionair"
+                            value="Lion Air"
+                            onChange={(e) => setSearch(e.target.value)}
+                          />
                         </div>
-                        <div>
-                          <img src={assets.lunch} alt="" />
-                        </div>
-                        <div>
-                          <img src={assets.wifi} alt="" />
-                        </div>
-                      </div>
-                      <div className="d-flex flex-row gap-0 mt-2">
-                        <div>
-                          <p className={style.flightPrice}>$ 214</p>
-                        </div>
-                        <div>
-                          <p className={style.flightPax}>/pax</p>
-                        </div>
-                      </div>
-                      <div>
-                        <button className={style.btnFlight}>Select</button>
-                      </div>
-                    </div>
-                    <div className="d-flex flex-row gap-2">
-                      <div>
-                        <p className={style.viewDetail}>View Details</p>
                       </div>
                     </div>
                   </div>
@@ -401,6 +412,118 @@ const Flight = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div className={style.basisRight}>
+          {data ? (
+            data.map((item) => (
+              <div className={style.brFlight}>
+                <div className={style.brSelect}>
+                  <div className={style.brfHead}>
+                    <p className={style.brfhSelect}>Select Ticket</p>
+                    <div className="d-flex flex-row gap-2">
+                      <button className={style.brfhSortby}>Sort by</button>
+                      <img
+                        src={assets.sortby}
+                        alt=""
+                        className={style.whSortby}
+                      />
+                    </div>
+                  </div>
+                  <div className={style.brfBody}>
+                    <div className={style.brfBodyValue}>
+                      <div className="d-flex flex-column gap-3">
+                        <div className={style.basisPhoto}>
+                          <div>
+                            <img
+                              src={item.photo}
+                              className={style.photo}
+                              alt=""
+                            />
+                          </div>
+                          <div className="mt-3">
+                            <p className={style.flightName}>{item.airlines}</p>
+                          </div>
+                        </div>
+                        <div className="d-flex flex-row justify-content-between">
+                          <div className="d-flex flex-row gap-4">
+                            <div className="d-flex flex-column">
+                              <p className={style.codeFlight}>{item.origin}</p>
+                              <p className={style.departureTime}>
+                                {item.departure}
+                              </p>
+                            </div>
+                            <div>
+                              <img
+                                src={assets.airlinespace}
+                                alt=""
+                                className="mt-2"
+                              />
+                            </div>
+                            <div className="d-flex flex-column">
+                              <p className={style.codeFlight}>
+                                {item.destination}
+                              </p>
+                              <p className={style.arrivalTime}>
+                                {item.arrived}
+                              </p>
+                            </div>
+                          </div>
+                          <div className="mt-2">
+                            <p className={style.spaceTime}>
+                              3 hours 11 minutes
+                            </p>
+                          </div>
+                          <div className="d-flex flex-row gap-3 mt-2">
+                            <div>
+                              <img src={assets.luggage} alt="" />
+                            </div>
+                            <div>
+                              <img src={assets.lunch} alt="" />
+                            </div>
+                            <div>
+                              <img src={assets.wifi} alt="" />
+                            </div>
+                          </div>
+                          <div className="d-flex flex-row gap-0 mt-2">
+                            <div>
+                              <p className={style.flightPrice}>
+                                ${" "}
+                                {String(item.price)
+                                  .split("")
+                                  .reverse()
+                                  .join("")
+                                  .match(/.{1,3}/g)
+                                  .join(".")
+                                  .split("")
+                                  .reverse()
+                                  .join("")}
+                              </p>
+                            </div>
+                            <div>
+                              <p className={style.flightPax}>/pax</p>
+                            </div>
+                          </div>
+                          <div>
+                            <button className={style.btnFlight}>Select</button>
+                          </div>
+                        </div>
+                        <div className="d-flex flex-row gap-2">
+                          <div>
+                            <p className={style.viewDetail}>View Details</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="d-flex flex-auto justify-content-center">
+              Loading ges... jangan brutal. Kasian server konsumsi energi
+              listrik hasil batu bara. #SaveEarth #GoGreen
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -305,3 +305,14 @@
   font-weight: 600;
   color: #ffffff;
 }
+.basisPhoto {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+}
+.photo {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+}
