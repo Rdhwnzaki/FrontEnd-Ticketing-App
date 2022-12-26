@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Flight = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [data, setData] = useState([]);
@@ -14,7 +13,6 @@ const Flight = () => {
   const [search, setSearch] = useState("");
   const [limit, setLimit] = useState(5);
   const [page, setPage] = useState(1);
-  const [pagination, setPagination] = useState([]);
 
   const getFlightData = async (url) => {
     let token = localStorage.getItem("token");
@@ -33,7 +31,7 @@ const Flight = () => {
   };
 
   useEffect(() => {
-    let url = `http://localhost:3006/ticket/getstockticket`;
+    let url = `http://localhost:3006/stock-ticket/getstockticket`;
     if (limit !== "5") {
       url = `${url}?limit=${limit}`;
     } else {
@@ -54,6 +52,14 @@ const Flight = () => {
 
   const resetFilter = () => {
     setSearch("");
+  };
+
+  const nextPage = () => {
+    setPage(page + 1);
+  };
+
+  const previousPage = () => {
+    setPage(page - 1);
   };
 
   return (
@@ -376,31 +382,34 @@ const Flight = () => {
                     >
                       <div className="accordion-body">
                         <div className="d-flex flex-row justify-content-between mt-2">
-                          <span>Garuda Indonesia</span>
+                          <label for="garuda">Garuda Indonesia</label>
                           <input
                             className="form-check-input"
-                            type="checkbox"
-                            name="garuda"
+                            type="radio"
+                            name="airlines"
+                            id="garuda"
                             value="Garuda Indonesia"
                             onChange={(e) => setSearch(e.target.value)}
                           />
                         </div>
                         <div className="d-flex flex-row justify-content-between mt-2">
-                          <span>Air Asia</span>
+                          <label for="airasia">Air Asia</label>
                           <input
                             className="form-check-input"
-                            type="checkbox"
-                            name="airaisa"
+                            type="radio"
+                            name="airlines"
+                            id="airasia"
                             value="Air Asia"
                             onChange={(e) => setSearch(e.target.value)}
                           />
                         </div>
                         <div className="d-flex flex-row justify-content-between mt-2">
-                          <span>Lion Air</span>
+                          <label for="lionair">Lion Air</label>
                           <input
                             className="form-check-input"
-                            type="checkbox"
-                            name="lionair"
+                            type="radio"
+                            name="airlines"
+                            id="lionair"
                             value="Lion Air"
                             onChange={(e) => setSearch(e.target.value)}
                           />
@@ -504,7 +513,14 @@ const Flight = () => {
                             </div>
                           </div>
                           <div>
-                            <button className={style.btnFlight}>Select</button>
+                            <button
+                              className={style.btnFlight}
+                              onClick={() =>
+                                navigate(`/flight-detail/${item.id}`)
+                              }
+                            >
+                              Select
+                            </button>
                           </div>
                         </div>
                         <div className="d-flex flex-row gap-2">
@@ -524,6 +540,18 @@ const Flight = () => {
               listrik hasil batu bara. #SaveEarth #GoGreen
             </div>
           )}
+          <div className="d-flex flex-row gap-5 mt-5 mb-5">
+            <div>
+              <button disabled={page === 1} onClick={previousPage}>
+                Prev
+              </button>
+            </div>
+            <div>
+              <button disabled={data <= 0} onClick={nextPage}>
+                Next
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

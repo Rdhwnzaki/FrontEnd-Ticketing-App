@@ -23,7 +23,7 @@ const Router = () => {
         <Route path="/forgot" element={<Forgot />} />
         <Route path="/verification" element={<Verification />} />
         <Route path="/flight" element={<Flight />} />
-        <Route path="/flight-detail" element={<FlightDetail />} />
+        <Route path="/flight-detail/:id" element={<FlightDetail />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/profile" element={<Profile />} />

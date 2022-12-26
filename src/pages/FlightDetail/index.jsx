@@ -1,8 +1,83 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import style from "./flightdetail.module.css";
 import assets from "../../assets";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 
 const FlightDetail = () => {
+  const navigate = useNavigate();
+
+  const [data, setData] = useState([]);
+  const { id } = useParams();
+
+  const [title, setTitle] = useState("");
+  const [fullname, setFullname] = useState("");
+  const [nationality, setNationality] = useState("");
+  const [stock, setStock] = useState("");
+  const [price, setPrice] = useState("");
+  const [u_id, setU_id] = useState("");
+  const [uuid, setUuid] = useState("");
+
+  var token = localStorage.getItem("token");
+  var user_id = localStorage.getItem("user_id");
+  var user_fullname = localStorage.getItem("user_fullname");
+  var user_email = localStorage.getItem("user_email");
+  var user_phone = localStorage.getItem("user_phone");
+  console.log(user_id, user_fullname, user_phone);
+
+  const getDetailData = async (url) => {
+    console.log("ini token", token);
+    try {
+      const res = await axios.get(url, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setData(res.data.data);
+      setStock(res.data.data[0].stock);
+      setPrice(res.data.data[0].price);
+      setU_id(res.data.data[0].u_id);
+      setUuid(res.data.data[0].uuid);
+      console.log(res.data.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    let url = `http://localhost:3006/stock-ticket/getstockticket/${id}`;
+    getDetailData(url);
+  }, []);
+
+  console.log(stock, price, u_id, uuid);
+
+  const afterstock = stock - 1;
+  console.log(afterstock);
+
+  const handlerPassenger = async (e) => {
+    e.preventDefault();
+    try {
+      const data = new FormData();
+      data.append("datail_user", title);
+      data.append("custommer_name", fullname);
+      data.append("nationality", nationality);
+      data.append("user_id", u_id);
+      data.append("uuid", uuid);
+      await axios.post(`http://localhost:3006/ticket/post-ticket`, data, {
+        headers: {
+          "content-type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      localStorage.setItem("stock", afterstock);
+      localStorage.setItem("price", price);
+      navigate("/payment");
+      console.log("Success create to payment");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className={style.customContainer}>
       <div className={style.customNav}>
@@ -42,15 +117,15 @@ const FlightDetail = () => {
               <form className={style.blFormTop}>
                 <div>
                   <label htmlFor="fullname">Full name</label>
-                  <input type="text" name="fullname" placeholder="Fullname" />
+                  <input type="text" name="fullname" value={user_fullname} />
                 </div>
                 <div>
                   <label htmlFor="email">Email</label>
-                  <input type="email" name="email" placeholder="Email" />
+                  <input type="email" name="email" value={user_email} />
                 </div>
                 <div>
                   <label htmlFor="phone">Phone</label>
-                  <input type="text" name="phone" placeholder="Phone" />
+                  <input type="text" name="phone" value={user_phone} />
                 </div>
                 <div>
                   <img src={assets.warningbltop} alt="" />
@@ -63,18 +138,26 @@ const FlightDetail = () => {
           </div>
           <div className={style.blContainerCenter}>
             <div className={style.blBasisFormCenter}>
-              <form className={style.blFormCenter}>
+              <form
+                onSubmit={handlerPassenger}
+                id="passengers-detail"
+                className={style.blFormCenter}
+              >
                 <div>
                   <img src={assets.brfcfield} alt="" />
                 </div>
                 <div>
                   <label htmlFor="title">Title</label>
-                  <input
-                    type="text"
+                  <select
                     name="title"
                     id="title"
-                    placeholder="Title"
-                  />
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                  >
+                    <option value="Mr">Mr</option>
+                    <option value="Mrs">Mrs</option>
+                    <option value="Other">Other</option>
+                  </select>
                 </div>
                 <div>
                   <label htmlFor="fullname">Fullname</label>
@@ -83,16 +166,24 @@ const FlightDetail = () => {
                     name="fullname"
                     id="fullname"
                     placeholder="Fullname"
+                    value={fullname}
+                    onChange={(e) => setFullname(e.target.value)}
                   />
                 </div>
                 <div>
                   <label htmlFor="nationality">Nationality</label>
-                  <input
-                    type="text"
+                  <select
                     name="nationality"
                     id="nationality"
-                    placeholder="Nationality"
-                  />
+                    value={nationality}
+                    onChange={(e) => setNationality(e.target.value)}
+                  >
+                    <option value="ID">ID</option>
+                    <option value="UK">UK</option>
+                    <option value="IND">IND</option>
+                    <option value="SG">SG</option>
+                    <option value="Other">Other</option>
+                  </select>
                 </div>
               </form>
             </div>
@@ -118,6 +209,16 @@ const FlightDetail = () => {
               </form>
             </div>
           </div>
+          <div>
+            <button
+              type="submit"
+              onClick={handlerPassenger}
+              form="passengers-detail"
+              className={style.btnProceed}
+            >
+              Proceed to Payment
+            </button>
+          </div>
         </div>
         <div className={style.basisRight}>
           <div className={style.basisRHead}>
@@ -125,60 +226,62 @@ const FlightDetail = () => {
             <p className={style.brhRight}>View Detail</p>
           </div>
           <div className={style.brContainerTop}>
-            <div className={style.brBasisFormTop}>
-              <div className={style.brFormTop}>
-                <div>
-                  <div>
-                    <img src={assets.brftlogo} alt="" />
-                  </div>
-                  <div>
-                    <div>Airlines Name</div>
-                  </div>
-                </div>
-                <div>
-                  <div>
-                    <p>Departure</p>
-                  </div>
+            {data.map((item) => (
+              <div className={style.brBasisFormTop}>
+                <div className={style.brFormTop}>
                   <div>
                     <div>
-                      <img
-                        src={assets.airlinespace}
-                        className={style.brftAirSpace}
-                        alt=""
-                      />
+                      <img src={item.photo} alt="" />
+                    </div>
+                    <div>
+                      <div>{item.airlines}</div>
                     </div>
                   </div>
                   <div>
-                    <p>Arrival</p>
-                  </div>
-                </div>
-                <div className={style.brFormTopSpace}>
-                  <p>Date</p>
-                  <img src={assets.datespace} alt="" />
-                  <p>Time</p>
-                </div>
-                <div className={style.brFormTopSpace}>
-                  <img src={assets.ftcheck} alt="" />
-                  <p>
-                    <div>Refundable</div>
-                  </p>
-                </div>
-                <div className={style.brFormTopSpace}>
-                  <img src={assets.ftcheck} alt="" />
-                  <p>
-                    <div>Can reschedule</div>
-                  </p>
-                </div>
-                <div>
-                  <p>
                     <div>
-                      <p>Total Payment</p>
-                      <div>$ 145</div>
+                      <p>{item.departure}</p>
                     </div>
-                  </p>
+                    <div>
+                      <div>
+                        <img
+                          src={assets.airlinespace}
+                          className={style.brftAirSpace}
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <p>{item.arrived}</p>
+                    </div>
+                  </div>
+                  <div className={style.brFormTopSpace}>
+                    <p>Date</p>
+                    <img src={assets.datespace} alt="" />
+                    <p>Time</p>
+                  </div>
+                  <div className={style.brFormTopSpace}>
+                    <img src={assets.ftcheck} alt="" />
+                    <p>
+                      <div>Refundable</div>
+                    </p>
+                  </div>
+                  <div className={style.brFormTopSpace}>
+                    <img src={assets.ftcheck} alt="" />
+                    <p>
+                      <div>Can reschedule</div>
+                    </p>
+                  </div>
+                  <div>
+                    <p>
+                      <div>
+                        <p>Total Payment</p>
+                        <div>$ {item.price}</div>
+                      </div>
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
