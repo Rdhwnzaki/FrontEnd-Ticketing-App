@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Flight = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [data, setData] = useState([]);
@@ -14,7 +13,6 @@ const Flight = () => {
   const [search, setSearch] = useState("");
   const [limit, setLimit] = useState(5);
   const [page, setPage] = useState(1);
-  const [pagination, setPagination] = useState([]);
 
   const getFlightData = async (url) => {
     let token = localStorage.getItem("token");
@@ -54,6 +52,14 @@ const Flight = () => {
 
   const resetFilter = () => {
     setSearch("");
+  };
+
+  const nextPage = () => {
+    setPage(page + 1);
+  };
+
+  const previousPage = () => {
+    setPage(page - 1);
   };
 
   return (
@@ -534,6 +540,18 @@ const Flight = () => {
               listrik hasil batu bara. #SaveEarth #GoGreen
             </div>
           )}
+          <div className="d-flex flex-row gap-5 mt-5 mb-5">
+            <div>
+              <button disabled={page === 1} onClick={previousPage}>
+                Prev
+              </button>
+            </div>
+            <div>
+              <button disabled={data <= 0} onClick={nextPage}>
+                Next
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
