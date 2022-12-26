@@ -16,6 +16,8 @@ import Swal from "sweetalert2";
 import Main from "../pages/Main";
 import Explore from "../pages/Explore";
 import Payment from "../pages/Payment";
+import Profile from "./pages/Profile";
+import BookingPass from "./pages/BookingPass";
 
 const Router = () => {
   return (
@@ -30,6 +32,8 @@ const Router = () => {
         <Route path="/flight-detail" element={<FlightDetail />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/payment" element={<Payment />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/bookingpass" element={<BookingPass />} />
       </Routes>
     </BrowserRouter>
   );
