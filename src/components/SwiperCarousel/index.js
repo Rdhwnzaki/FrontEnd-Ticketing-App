@@ -38,9 +38,15 @@ function SwiperCarousel() {
               <img
                 src={Assets.desti1}
                 alt=""
-                style={{ borderRadius: "50%", border: "4px solid #fff" }}
+                style={{
+                  borderRadius: "50%",
+                  border: "4px solid #fff",
+                  marginLeft: "50px",
+                }}
               />
-              <h6 className="mt-4 ms-5">PARIS</h6>
+              <h6 className="mt-4" style={{ marginLeft: "90px" }}>
+                PARIS
+              </h6>
             </section>
           </SwiperSlide>
           <SwiperSlide>
@@ -48,9 +54,15 @@ function SwiperCarousel() {
               <img
                 src={Assets.desti2}
                 alt=""
-                style={{ borderRadius: "50%", border: "4px solid #fff" }}
+                style={{
+                  borderRadius: "50%",
+                  border: "4px solid #fff",
+                  marginLeft: "50px",
+                }}
               />
-              <h6 className="mt-4 ms-5">BALI</h6>
+              <h6 className="mt-4" style={{ marginLeft: "100px" }}>
+                BALI
+              </h6>
             </section>
           </SwiperSlide>
           <SwiperSlide>
@@ -58,9 +70,15 @@ function SwiperCarousel() {
               <img
                 src={Assets.desti3}
                 alt=""
-                style={{ borderRadius: "50%", border: "4px solid #fff" }}
+                style={{
+                  borderRadius: "50%",
+                  border: "4px solid #fff",
+                  marginLeft: "50px",
+                }}
               />
-              <h6 className="mt-4 ms-4">SINGAPORE</h6>
+              <h6 className="mt-4 " style={{ marginLeft: "70px" }}>
+                SINGAPORE
+              </h6>
             </section>
           </SwiperSlide>
           <SwiperSlide>
@@ -68,9 +86,15 @@ function SwiperCarousel() {
               <img
                 src={Assets.desti4}
                 alt=""
-                style={{ borderRadius: "50%", border: "4px solid #fff" }}
+                style={{
+                  borderRadius: "50%",
+                  border: "4px solid #fff",
+                  marginLeft: "50px",
+                }}
               />
-              <h6 className="mt-4 ms-5">AGRA</h6>
+              <h6 className="mt-4" style={{ marginLeft: "100px" }}>
+                AGRA
+              </h6>
             </section>
           </SwiperSlide>
           <SwiperSlide>
@@ -78,9 +102,15 @@ function SwiperCarousel() {
               <img
                 src={Assets.desti5}
                 alt=""
-                style={{ borderRadius: "50%", border: "4px solid #fff" }}
+                style={{
+                  borderRadius: "50%",
+                  border: "4px solid #fff",
+                  marginLeft: "50px",
+                }}
               />
-              <h6 className="mt-4 ms-5">SYDNEY</h6>
+              <h6 className="mt-4" style={{ marginLeft: "90px" }}>
+                SYDNEY
+              </h6>
             </section>
           </SwiperSlide>
           <SwiperSlide>
@@ -88,9 +118,15 @@ function SwiperCarousel() {
               <img
                 src={Assets.desti1}
                 alt=""
-                style={{ borderRadius: "50%", border: "4px solid #fff" }}
+                style={{
+                  borderRadius: "50%",
+                  border: "4px solid #fff",
+                  marginLeft: "50px",
+                }}
               />
-              <h6 className="mt-4 ms-5">PARIS</h6>
+              <h6 className="mt-4" style={{ marginLeft: "90px" }}>
+                PARIS
+              </h6>
             </section>
           </SwiperSlide>
           <SwiperSlide>
@@ -98,9 +134,15 @@ function SwiperCarousel() {
               <img
                 src={Assets.desti2}
                 alt=""
-                style={{ borderRadius: "50%", border: "4px solid #fff" }}
+                style={{
+                  borderRadius: "50%",
+                  border: "4px solid #fff",
+                  marginLeft: "50px",
+                }}
               />
-              <h6 className="mt-4 ms-5">BALI</h6>
+              <h6 className="mt-4" style={{ marginLeft: "100px" }}>
+                BALI
+              </h6>
             </section>
           </SwiperSlide>
           <SwiperSlide>
@@ -108,9 +150,15 @@ function SwiperCarousel() {
               <img
                 src={Assets.desti3}
                 alt=""
-                style={{ borderRadius: "50%", border: "4px solid #fff" }}
+                style={{
+                  borderRadius: "50%",
+                  border: "4px solid #fff",
+                  marginLeft: "50px",
+                }}
               />
-              <h6 className="mt-4 ms-4">SINGAPORE</h6>
+              <h6 className="mt-4" style={{ marginLeft: "70px" }}>
+                SINGAPORE
+              </h6>
             </section>
           </SwiperSlide>
           <SwiperSlide>
@@ -118,9 +166,15 @@ function SwiperCarousel() {
               <img
                 src={Assets.desti4}
                 alt=""
-                style={{ borderRadius: "50%", border: "4px solid #fff" }}
+                style={{
+                  borderRadius: "50%",
+                  border: "4px solid #fff",
+                  marginLeft: "50px",
+                }}
               />
-              <h6 className="mt-4 ms-5">AGRA</h6>
+              <h6 className="mt-4" style={{ marginLeft: "100px" }}>
+                AGRA
+              </h6>
             </section>
           </SwiperSlide>
           <SwiperSlide>
@@ -128,9 +182,15 @@ function SwiperCarousel() {
               <img
                 src={Assets.desti5}
                 alt=""
-                style={{ borderRadius: "50%", border: "4px solid #fff" }}
+                style={{
+                  borderRadius: "50%",
+                  border: "4px solid #fff",
+                  marginLeft: "50px",
+                }}
               />
-              <h6 className="mt-4 ms-5">SYDNEY</h6>
+              <h6 className="mt-4" style={{ marginLeft: "90px" }}>
+                SYDNEY
+              </h6>
             </section>
           </SwiperSlide>
         </Swiper>

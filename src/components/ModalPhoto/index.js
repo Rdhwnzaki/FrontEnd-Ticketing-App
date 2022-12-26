@@ -25,9 +25,14 @@ function ModalPhoto() {
     formData.append("photo", photo);
     console.log(formData, "data dari handle data update");
     axios
-      .put(`http://localhost:3006/auth/edit-photo`, formData, user, {
-        "content-type": "multipart/form-data",
-      })
+      .put(
+        `https://gentle-tights-jay.cyclic.app/auth/edit-photo`,
+        formData,
+        user,
+        {
+          "content-type": "multipart/form-data",
+        }
+      )
       .then((res) => {
         console.log("Update photo succes");
         console.log(res);
@@ -45,7 +50,7 @@ function ModalPhoto() {
       <button
         className="btn mt-4"
         onClick={handleShow}
-        style={{ borderColor: "#2395FF", color: "#2395FF" }}
+        style={{ borderColor: "#2395FF", color: "#2395FF", marginLeft: "85px" }}
       >
         Select Photo
       </button>

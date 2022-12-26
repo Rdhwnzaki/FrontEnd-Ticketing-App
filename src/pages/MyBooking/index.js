@@ -5,8 +5,6 @@ import Footer from "../../components/Footer";
 import "./index.css";
 import Assets from "../../images";
 import axios from "axios";
-import ModalPhoto from "../../components/ModalPhoto";
-import StatusTicket from "../../components/StatusTicket";
 import CardProfile from "../../components/CardProfile";
 
 function MyBooking() {
@@ -19,7 +17,7 @@ function MyBooking() {
   };
   useEffect(() => {
     axios
-      .get("http://localhost:3006/ticket/get-ticket-join", user)
+      .get("https://gentle-tights-jay.cyclic.app/ticket/get-ticket-join", user)
       .then((res) => {
         console.log("Get detail user success");
         console.log(res.data);

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Assets from "../../images";
 import ModalPhoto from "../ModalPhoto";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 function CardProfile() {
   const [data, setData] = useState(null);
@@ -13,7 +15,7 @@ function CardProfile() {
   };
   useEffect(() => {
     axios
-      .get("http://localhost:3006/auth/user", user)
+      .get("https://gentle-tights-jay.cyclic.app/auth/user", user)
       .then((res) => {
         console.log("Get detail user success");
         console.log(res.data);
@@ -24,6 +26,12 @@ function CardProfile() {
         console.log(err);
       });
   }, []);
+  const navigate = useNavigate();
+  const handleLogout = async () => {
+    await localStorage.clear();
+    Swal.fire("Logout", "Logout success", "success");
+    navigate("/login");
+  };
   //   const dispatch = useDispatch();
   //   const { dataProfileResult } = useSelector((state) => state.profile);
   //   const payload = dataProfileResult.data;
@@ -43,12 +51,15 @@ function CardProfile() {
             marginTop: "30px",
             height: "120px",
             width: "120px",
+            marginLeft: "85px",
           }}
         />
       </div>
       <ModalPhoto />
-      <h6 className="mt-4">{data ? data[0].fullname : "data not found"}</h6>
-      <h6 style={{ fontSize: "10px" }}>
+      <h6 className="mt-4 text-center">
+        {data ? data[0].fullname : "data not found"}
+      </h6>
+      <h6 style={{ fontSize: "10px" }} className="text-center">
         {" "}
         <img src={Assets.map} alt="" />
         {data ? data[0].city : "data not found"},
@@ -111,7 +122,7 @@ function CardProfile() {
           <img src={Assets.btnback3} alt="" />
         </div>
       </div>
-      <div className="row mt-3">
+      <div className="row mt-3" onClick={handleLogout}>
         <div className="col-1">
           <img src={Assets.logout} alt="" />
         </div>
