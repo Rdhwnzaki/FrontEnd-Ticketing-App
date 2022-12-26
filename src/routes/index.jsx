@@ -1,23 +1,16 @@
 import React from "react";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Outlet,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
 import Forgot from "../pages/Auth/Forgot";
 import Verification from "../pages/Auth/Verification";
 import FlightDetail from "../pages/FlightDetail";
 import Flight from "../pages/Flight";
-import Swal from "sweetalert2";
 import Main from "../pages/Main";
 import Explore from "../pages/Explore";
 import Payment from "../pages/Payment";
-import Profile from "./pages/Profile";
-import BookingPass from "./pages/BookingPass";
+import Profile from "../pages/Profile";
+import BookingPass from "../pages/BookingPass";
 
 const Router = () => {
   return (
