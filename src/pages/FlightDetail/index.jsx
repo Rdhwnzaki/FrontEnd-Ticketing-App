@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import style from "./flightdetail.module.css";
 import assets from "../../assets";
-import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -14,6 +13,10 @@ const FlightDetail = () => {
   const [title, setTitle] = useState("");
   const [fullname, setFullname] = useState("");
   const [nationality, setNationality] = useState("");
+  const [stock, setStock] = useState("");
+  const [price, setPrice] = useState("");
+  const [u_id, setU_id] = useState("");
+  const [uuid, setUuid] = useState("");
 
   var token = localStorage.getItem("token");
   var user_id = localStorage.getItem("user_id");
@@ -31,6 +34,10 @@ const FlightDetail = () => {
         },
       });
       setData(res.data.data);
+      setStock(res.data.data[0].stock);
+      setPrice(res.data.data[0].price);
+      setU_id(res.data.data[0].u_id);
+      setUuid(res.data.data[0].uuid);
       console.log(res.data.data);
     } catch (err) {
       console.log(err);
@@ -42,14 +49,10 @@ const FlightDetail = () => {
     getDetailData(url);
   }, []);
 
-  console.log(data);
-  const stock = data[0].stock - 1;
-  console.log(stock);
-  const price = data[0].price;
-  console.log(price);
+  console.log(stock, price, u_id, uuid);
 
-  const u_id = user_id;
-  const uuid = user_id;
+  const afterstock = stock - 1;
+  console.log(afterstock);
 
   const handlerPassenger = async (e) => {
     e.preventDefault();
@@ -66,7 +69,7 @@ const FlightDetail = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-      localStorage.setItem("stock", stock);
+      localStorage.setItem("stock", afterstock);
       localStorage.setItem("price", price);
       navigate("/payment");
       console.log("Success create to payment");
