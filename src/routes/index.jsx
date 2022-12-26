@@ -25,7 +25,7 @@ const Router = () => {
         <Route path="/flight" element={<Flight />} />
         <Route path="/flight-detail/:id" element={<FlightDetail />} />
         <Route path="/explore" element={<Explore />} />
-        <Route path="/payment" element={<Payment />} />
+        <Route path="/payment/:id" element={<Payment />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/bookingpass" element={<BookingPass />} />
         <Route path="/mybooking" element={<MyBooking />} />

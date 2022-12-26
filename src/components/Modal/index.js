@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Assets from "../../images";
 import Form from "react-bootstrap/Form";
+import { Link } from "react-router-dom";
 
 function ModalFind() {
   const [show, setShow] = useState(false);
@@ -121,24 +122,26 @@ function ModalFind() {
                 </div>
               ))}
             </Form>
-            <button
-              className="btn mt-4"
-              style={{
-                backgroundColor: "#2395FF",
-                color: "white",
-                height: "70px",
-                width: "460px",
-              }}
-            >
-              <h6 className="text-start" style={{ marginTop: "15px" }}>
-                SEARCH FLIGHT
-              </h6>
-              <img
-                src={Assets.next}
-                alt=""
-                style={{ marginLeft: "330px", marginTop: "-60px" }}
-              />
-            </button>
+            <Link to="/flight">
+              <button
+                className="btn mt-4"
+                style={{
+                  backgroundColor: "#2395FF",
+                  color: "white",
+                  height: "70px",
+                  width: "460px",
+                }}
+              >
+                <h6 className="text-start" style={{ marginTop: "15px" }}>
+                  SEARCH FLIGHT
+                </h6>
+                <img
+                  src={Assets.next}
+                  alt=""
+                  style={{ marginLeft: "330px", marginTop: "-60px" }}
+                />
+              </button>
+            </Link>
           </Modal.Title>
         </Modal.Header>
       </Modal>

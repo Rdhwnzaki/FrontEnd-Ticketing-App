@@ -36,8 +36,8 @@ const FlightDetail = () => {
       setData(res.data.data);
       setStock(res.data.data[0].stock);
       setPrice(res.data.data[0].price);
-      setU_id(res.data.data[0].u_id);
-      setUuid(res.data.data[0].uuid);
+      setU_id(user_id);
+      setUuid(user_id);
       console.log(res.data.data);
     } catch (err) {
       console.log(err);
@@ -63,6 +63,7 @@ const FlightDetail = () => {
       data.append("nationality", nationality);
       data.append("user_id", u_id);
       data.append("uuid", uuid);
+      data.append("total_price", price);
       await axios.post(`http://localhost:3006/ticket/post-ticket`, data, {
         headers: {
           "content-type": "multipart/form-data",
@@ -71,7 +72,8 @@ const FlightDetail = () => {
       });
       localStorage.setItem("stock", afterstock);
       localStorage.setItem("price", price);
-      navigate("/payment");
+      localStorage.setItem("id_stock", id);
+      navigate("/payment/:id");
       console.log("Success create to payment");
     } catch (err) {
       console.log(err);
@@ -231,7 +233,7 @@ const FlightDetail = () => {
                 <div className={style.brFormTop}>
                   <div>
                     <div>
-                      <img src={item.photo} alt="" />
+                      <img src={item.photo} alt="" className={style.image} />
                     </div>
                     <div>
                       <div>{item.airlines}</div>
@@ -256,7 +258,6 @@ const FlightDetail = () => {
                   </div>
                   <div className={style.brFormTopSpace}>
                     <p>Date</p>
-                    <img src={assets.datespace} alt="" />
                     <p>Time</p>
                   </div>
                   <div className={style.brFormTopSpace}>

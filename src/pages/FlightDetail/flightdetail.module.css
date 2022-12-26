@@ -377,3 +377,12 @@
   border: transparent;
   border-radius: 10px;
 }
+
+.image {
+  width: 60px;
+  height: 60px;
+}
+.bullet {
+  width: 10px;
+  height: 10px;
+}

@@ -21,7 +21,7 @@ export const loginCustomer = (data, navigate) => async (dispatch) => {
     localStorage.setItem("user_email", email);
     dispatch({ type: "CUSTOMER_LOGIN_SUCCESS", payload: customer });
     Swal.fire("Success", "Login success", "success");
-    navigate("/home");
+    navigate("/explore");
   } catch (err) {
     console.log(err);
     Swal.fire("Warning", "Login failed", "error");

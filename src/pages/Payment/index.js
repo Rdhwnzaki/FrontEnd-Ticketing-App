@@ -11,9 +11,35 @@ import {
   FaRegClock,
 } from "react-icons/fa";
 import Footer from "../../components/Footer";
+import axios from "axios";
 
 function Payment() {
   const token = localStorage.getItem("token");
+  const price = localStorage.getItem("price");
+  const stock = localStorage.getItem("stock");
+  const id = localStorage.getItem("id_stock");
+  const handleData = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("stock", stock);
+    axios
+      .put(
+        `https://gentle-tights-jay.cyclic.app/stock-ticket/getstockticket/${id}`,
+        formData,
+        {
+          "content-type": "multipart/form-data",
+        }
+      )
+      .then((res) => {
+        console.log("Update stock succes");
+        console.log(res);
+        window.location.reload(false);
+      })
+      .catch((err) => {
+        console.log("Update stock failed");
+        console.log(err);
+      });
+  };
   return (
     <div>
       {token ? <NavbarAfter /> : <Navbar />}
@@ -95,7 +121,7 @@ function Payment() {
                   </p>
                 </div>
                 <div className="col-md-1 offset-4">
-                  <h6>$99.9</h6>
+                  <h6>$ {price}</h6>
                   <h6
                     style={{
                       fontSize: "10px",
