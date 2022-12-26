@@ -33,7 +33,7 @@ const Flight = () => {
   };
 
   useEffect(() => {
-    let url = `http://localhost:3006/ticket/getstockticket`;
+    let url = `http://localhost:3006/stock-ticket/getstockticket`;
     if (limit !== "5") {
       url = `${url}?limit=${limit}`;
     } else {
@@ -376,31 +376,34 @@ const Flight = () => {
                     >
                       <div className="accordion-body">
                         <div className="d-flex flex-row justify-content-between mt-2">
-                          <span>Garuda Indonesia</span>
+                          <label for="garuda">Garuda Indonesia</label>
                           <input
                             className="form-check-input"
-                            type="checkbox"
-                            name="garuda"
+                            type="radio"
+                            name="airlines"
+                            id="garuda"
                             value="Garuda Indonesia"
                             onChange={(e) => setSearch(e.target.value)}
                           />
                         </div>
                         <div className="d-flex flex-row justify-content-between mt-2">
-                          <span>Air Asia</span>
+                          <label for="airasia">Air Asia</label>
                           <input
                             className="form-check-input"
-                            type="checkbox"
-                            name="airaisa"
+                            type="radio"
+                            name="airlines"
+                            id="airasia"
                             value="Air Asia"
                             onChange={(e) => setSearch(e.target.value)}
                           />
                         </div>
                         <div className="d-flex flex-row justify-content-between mt-2">
-                          <span>Lion Air</span>
+                          <label for="lionair">Lion Air</label>
                           <input
                             className="form-check-input"
-                            type="checkbox"
-                            name="lionair"
+                            type="radio"
+                            name="airlines"
+                            id="lionair"
                             value="Lion Air"
                             onChange={(e) => setSearch(e.target.value)}
                           />
@@ -504,7 +507,14 @@ const Flight = () => {
                             </div>
                           </div>
                           <div>
-                            <button className={style.btnFlight}>Select</button>
+                            <button
+                              className={style.btnFlight}
+                              onClick={() =>
+                                navigate(`/flight-detail/${item.id}`)
+                              }
+                            >
+                              Select
+                            </button>
                           </div>
                         </div>
                         <div className="d-flex flex-row gap-2">

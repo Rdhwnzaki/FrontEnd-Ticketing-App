@@ -166,6 +166,24 @@
   font-size: 14px;
   font-weight: 400;
 }
+.blFormCenter div select {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #414141;
+  background-color: #fff;
+  background-clip: padding-box;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 2px solid #d2c2ff;
+  appearance: none;
+  border-radius: 0.375rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
 .blFormCenter div input {
   display: block;
   width: 100%;
@@ -333,7 +351,7 @@
   font-size: 18px;
   font-weight: 500;
   margin-top: 20px;
-  margin-right: 90px;
+  margin-right: 70px;
 }
 .brFormTop div p div div {
   font-size: 24px;
@@ -348,4 +366,14 @@
 .brftAirSpace {
   width: 19px;
   height: 18px;
+}
+.btnProceed {
+  width: 270px;
+  height: 50px;
+  margin-top: 40px;
+  margin-left: 40%;
+  margin-bottom: 10%;
+  background-color: #2395ff;
+  border: transparent;
+  border-radius: 10px;
 }

@@ -9,8 +9,16 @@ export const loginCustomer = (data, navigate) => async (dispatch) => {
     const customer = res.data.data;
     console.log(customer, "data customer");
     const token = customer.token;
+    const id = customer.id;
+    const fullname = customer.fullname;
+    const phone = customer.phone;
+    const email = customer.email;
     console.log(token, "token customer");
     localStorage.setItem("token", token);
+    localStorage.setItem("user_id", id);
+    localStorage.setItem("user_fullname", fullname);
+    localStorage.setItem("user_phone", phone);
+    localStorage.setItem("user_email", email);
     dispatch({ type: "CUSTOMER_LOGIN_SUCCESS", payload: customer });
     Swal.fire("Success", "Login success", "success");
     navigate("/home");
