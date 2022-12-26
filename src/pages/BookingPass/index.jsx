@@ -1,11 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from 'axios';
 import styles from "./tiket.module.css";
 import barcod from "../../assets/bar.png";
 import plane from "../../assets/plane.png";
-import airport from "../../assets/plaN.png";
+// import airport from "../../assets/plaN.png";
 import titik from "../../assets/titik.png";
 
 export default function Ticket() {
+
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        axios
+        .get(`http://localhost:3006/stock-ticket/getstockticket`)
+        .then ((res) => {
+          console.log("get data succes");
+          console.log(res.data);
+          res.data && setData(res.data.data[3]);
+        })
+        .catch((err) => {
+          console.log("get data fail");
+          console.log(err);
+        });
+      }, [])
+
   return (
     <div className={styles.page}>
         <div className={styles.colorp}>
@@ -17,25 +35,26 @@ export default function Ticket() {
             <div className={styles.tik}>
             <div className={styles.tiket}>
                 <div className={styles.city}>
-                    <img src={airport} alt="" />
-                    <h1> IDN </h1>
+                    <img src={data.photo} alt="" className={styles.airlines}/>
+                    {/* <img src={airport} alt="" className={styles.airlines}/> */}
+                    <h1>{data.origin}</h1>
                     <img src={plane} alt="" className={styles.plane} />
-                    <h1> JPN </h1>
+                    <h1>{data.destination}</h1>
                 </div>
                 <div className={styles.filter}>
                     <div className={styles.text}>
                         <span> Code </span>
-                        <p> AB-221 </p>
+                        <p>{data.code}</p>
                         <span> Terminal </span>
-                        <p> A </p>
+                        <p>{data.terminal}</p>
                         <span> Departure </span>
-                        <p> Monday, 23 December '22 - 07.00 </p>
+                        <p>{data.departure}</p>
                     </div>
                     <div className={styles.textt}>
                         <span> Class </span>
-                        <p> Economy </p>
-                        <span> Code </span>
-                        <p> 221 </p>
+                        <p>{data.type}</p>
+                        <span> Gate </span>
+                        <p>{data.gate}</p>
                     </div>
                 </div>
                 </div>

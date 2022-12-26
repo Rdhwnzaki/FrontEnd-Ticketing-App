@@ -25,6 +25,7 @@ function Profile() {
   }};
 // console.log("ini tokennyaaaa=", token);
 
+// get Data
   useEffect(() => {
     axios
     .get("http://localhost:3006/auth/user", user)
@@ -39,6 +40,7 @@ function Profile() {
     });
   }, [])
 
+  // Update Data Profile
   const [photo, setPhoto] = useState(null);
   const [updateData, setUpdateData] = useState({
     email: data.email,
@@ -48,6 +50,19 @@ function Profile() {
     address: data.address,
     postcode: data.postcode
   })
+
+  const handlePhotoChange = (e) =>{
+    setPhoto(e.target.files[0])
+    console.log(e.target.files[0])
+  };
+  
+  const handleChange = (e) => {
+    setUpdateData({
+      ...updateData,
+      [e.target.name]:e.target.value
+    })
+    console.log(data)
+  }
 
   const users= {
     headers: {
@@ -83,46 +98,35 @@ function Profile() {
   });
  };
 
-const handleLogout = async () =>{
-  await localStorage.clear();
-  Swal.fire("Logout", "Logout success", "success");
-  navigate("/login")
- };
+ //Logout
+  const handleLogout = async () =>{
+    await localStorage.clear();
+    Swal.fire("Logout", "Logout success", "success");
+    navigate("/login")
+  };
 
-const handlePhotoChange = (e) =>{
-  setPhoto(e.target.files[0])
-  console.log(e.target.files[0])
-};
-
-const handleChange = (e) => {
-  setUpdateData({
-    ...updateData,
-    [e.target.name]:e.target.value
+  //Update Photo Only
+  const handleEditPhoto = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("photo", photo);
+    console.log(formData, "data dari handle photo update")
+  axios
+  .put(`http://localhost:3006/auth/edit-photo`, formData, users, {
+    "content-type": "multipart/form-data",
   })
-  console.log(data)
-}
-
-const handleEditPhoto = async (e) => {
-  e.preventDefault();
-  const formData = new FormData();
-  formData.append("photo", photo);
-  console.log(formData, "data dari handle photo update")
-axios
-.put(`http://localhost:3006/auth/edit-photo`, formData, users, {
-  "content-type": "multipart/form-data",
- })
- .then ((res) => {
-  console.log("update photo succes");
-  console.log(res);
-  window.location.reload(false);
-  Swal.fire("Success", "Update photo profile success", "success");
-})
-.catch((err) => {
-  console.log("update photo fail");
-  console.log(err);
-  Swal.fire("Warning", "Update photo profile failed", "error");
-});
-}
+  .then ((res) => {
+    console.log("update photo succes");
+    console.log(res);
+    window.location.reload(false);
+    Swal.fire("Success", "Update photo profile success", "success");
+  })
+  .catch((err) => {
+    console.log("update photo fail");
+    console.log(err);
+    Swal.fire("Warning", "Update photo profile failed", "error");
+  });
+  }
 
   return (
       <div className={styles.container}>
@@ -132,14 +136,12 @@ axios
               <img src={phot} alt="" className={styles.img} /> ) : (
               <img src={data.photo} alt="" className={styles.img} />
             )}
-
-            <div className={styles.file}>
-              <label htmlFor="files" className="btn">Select Photo</label>
-              <input type="file" id="files" name="photo" onChange={handlePhotoChange}/>
-            </div>
-            <button type="submit" className={styles.btnn} onClick={(e) => handleEditPhoto(e)} > Update Photo </button>
-           
-
+              <div className={styles.file}>
+                <label htmlFor="files" className="btn">Select Photo</label>
+                <input type="file" id="files" name="photo" onChange={handlePhotoChange}/>
+              </div>
+              <button type="submit" onClick={(e) => handleEditPhoto(e)} className={styles.btnn} > Save </button>
+              
             <div className={styles.name}>
             <h3>{data.fullname}</h3>
               <img src={location} alt="" />
@@ -153,7 +155,7 @@ axios
             <div className={styles.span}>
               <img src={icon} alt=""/>
               <span className={styles.prof}> Profile </span>
-                <img src={rowblue} alt="" className={styles.panah} style={{marginLeft:"10px"}} />
+                <img src={rowblue} alt="" className={styles.panah} style={{marginLeft:"1-px"}} />
             </div>
             <div className={styles.span}>
                 <img src={star} alt=""/>

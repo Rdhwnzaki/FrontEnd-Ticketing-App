@@ -2,11 +2,10 @@
     width: 100%;
     height: 100vh;
     background-color: #d2c2ffad;
-    /* padding-top: 50px; */
 } 
 .profile{
-    /* background-color: blueviolet; */
     display: flex;
+    /* justify-content: space-evenly; */
 }
 
 .side1{
@@ -14,7 +13,7 @@
     width: 325px;
     /* height: 715px; */
     background-color: white;
-    margin: 0px 30px 0px 65px;
+    margin: 0px 30px 0px 80px;
     border-radius: 5px;
 }
 .img{
@@ -29,13 +28,11 @@
     visibility: hidden;
 }
 .file{ 
-    /* background-color: blue; */
-    font-weight: bold;
+    font-weight: ;
     font-size: 16px;
     border: 1px solid black;
     width: 120px;
-    height: 25px;
-    padding-top: 10px;
+    height: 40px;
     border-radius: 8px;
     margin: 0 auto;
 }
@@ -73,10 +70,7 @@
 .card{
     display: flex;
     justify-content: space-between;
-    /* background-color: rgb(163, 108, 35); */
-    padding: 10px 50px 0px 50px;
-    /* width: 267px; */
-    /* height: 42px; */
+    padding: 5px 50px 0px 50px;
 }
 .card h5{
     font-weight: 600;
@@ -86,7 +80,7 @@
     font-weight: 600;
     font-size: 14px;
     color: gray;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 .imgcard{
     width: 267px;
@@ -107,6 +101,7 @@
     font-size: 14px;
     font-weight: 600;
     padding-left: 10px;
+    padding-bottom: 5px;
 }
 .prof{
     color: rgb(0, 89, 255);
@@ -115,6 +110,7 @@
 .log{
     color: rgb(194, 41, 41);
     padding-right: 45px;
+    margin-bottom: 10px;
 }
 /* .span .log:hover{
     background-color: rgb(218, 100, 100);
@@ -139,33 +135,38 @@
     font-size: 14px;
     font-weight: 500;
     color: rgb(0, 89, 255);
-    padding-left: 20px;
+    padding-left: 30px;
+    padding-top: 20px;
 }
 .side2 h3{
     font-size: 24px;
     font-weight: 600;
-    padding-left: 20px;
+    padding-left: 30px;
+    padding-top: 10px;
 }
 .input{
     display: flex;
     margin-left: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 .contact{
     background-color: white;
     width: 397px;
+    padding-top: 20px;
+    margin-left: 10px;
 }
 .biodata{
-    /* background-color: white; */
+    /* background-color: red; */
     padding-left: 30px;
-    width: 397px;
+    width: 397px; 
+    padding-top: 20px;
 }
 .side2 input{
     width: 319px;
     border: 0;
     outline: 0;
     border-bottom: 2px solid #d2c2ffad;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     padding-left: 10px;
     font-size: 16px;
 }
@@ -174,6 +175,7 @@
     font-size: 14px;
     color: gray;
     padding-left: 10px;
+    padding-top: 10px;
 }
 .input h6{
     font-size: 16px;
