@@ -45,7 +45,7 @@ const FlightDetail = () => {
   };
 
   useEffect(() => {
-    let url = `http://localhost:3006/stock-ticket/getstockticket/${id}`;
+    let url = `https://gentle-tights-jay.cyclic.app/stock-ticket/getstockticket/${id}`;
     getDetailData(url);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -65,7 +65,7 @@ const FlightDetail = () => {
       data.append("user_id", u_id);
       data.append("uuid", uuid);
       data.append("total_price", price);
-      await axios.post(`http://localhost:3006/ticket/post-ticket`, data, {
+      await axios.post(`https://gentle-tights-jay.cyclic.app/ticket/post-ticket`, data, {
         headers: {
           "content-type": "multipart/form-data",
           Authorization: `Bearer ${token}`,

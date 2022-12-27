@@ -32,7 +32,7 @@ const Flight = () => {
   };
 
   useEffect(() => {
-    let url = `http://localhost:3006/stock-ticket/getstockticket`;
+    let url = `https://gentle-tights-jay.cyclic.app/stock-ticket/getstockticket`;
     if (limit !== "5") {
       url = `${url}?limit=${limit}`;
     } else {

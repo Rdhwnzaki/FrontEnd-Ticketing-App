@@ -5,7 +5,10 @@ export const loginCustomer = (data, navigate) => async (dispatch) => {
   try {
     console.log(data);
     dispatch({ type: "CUSTOMER_LOGIN_PENDING" });
-    const res = await axios.post(`http://localhost:3006/auth/login`, data);
+    const res = await axios.post(
+      `https://gentle-tights-jay.cyclic.app/auth/login`,
+      data
+    );
     const customer = res.data.data;
     console.log(customer, "data customer");
     const token = customer.token;

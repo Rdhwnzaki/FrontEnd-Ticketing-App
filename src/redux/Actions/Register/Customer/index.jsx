@@ -4,7 +4,10 @@ import Swal from "sweetalert2";
 export const registerCustomer = (data, navigate) => async (dispatch) => {
   try {
     dispatch({ type: "CUSTOMER_REGISTER_PENDING" });
-    const res = await axios.post(`http://localhost:3006/auth/register`, data);
+    const res = await axios.post(
+      `https://gentle-tights-jay.cyclic.app/auth/register`,
+      data
+    );
     const customer = res.data.data;
     console.log(customer);
     dispatch({ type: "CUSTOMER_REGISTER_SUCCESS", payload: customer });
