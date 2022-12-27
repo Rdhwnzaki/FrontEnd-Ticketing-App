@@ -11,35 +11,52 @@ import {
   FaRegClock,
 } from "react-icons/fa";
 import Footer from "../../components/Footer";
-// import axios from "axios";
+import axios from "axios";
+import { useNavigate, useParams } from "react-router";
 
 function Payment() {
+  const navigate = useNavigate();
+  const { id } = useParams();
   const token = localStorage.getItem("token");
   const price = localStorage.getItem("price");
-  // const stock = localStorage.getItem("stock");
-  // const id = localStorage.getItem("id_stock");
-  // const handleData = async (e) => {
-  //   e.preventDefault();
-  //   const formData = new FormData();
-  //   formData.append("stock", stock);
-  //   axios
-  //     .put(
-  //       `https://gentle-tights-jay.cyclic.app/stock-ticket/getstockticket/${id}`,
-  //       formData,
-  //       {
-  //         "content-type": "multipart/form-data",
-  //       }
-  //     )
-  //     .then((res) => {
-  //       console.log("Update stock succes");
-  //       console.log(res);
-  //       window.location.reload(false);
-  //     })
-  //     .catch((err) => {
-  //       console.log("Update stock failed");
-  //       console.log(err);
-  //     });
-  // };
+  const stock = localStorage.getItem("stock");
+  const id_stock = localStorage.getItem("id_stock");
+  const handleData = async (e) => {
+    e.preventDefault();
+    let data = {
+      id: id_stock,
+      stock: stock,
+    };
+    try {
+      await axios.put(`http://localhost:3006/stock-ticket/edit-stock`, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+    } catch (err) {
+      console.log(err);
+    }
+    let dataStatus = {
+      status: 1,
+    };
+    try {
+      await axios.put(
+        `http://localhost:3006/ticket/put-ticket/${id}`,
+        dataStatus,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+    } catch (err) {
+      console.log(err);
+    }
+    localStorage.removeItem("id_stock");
+    localStorage.removeItem("price");
+    localStorage.removeItem("stock");
+    navigate("/mybooking");
+  };
   return (
     <div>
       {token ? <NavbarAfter /> : <Navbar />}
@@ -153,6 +170,7 @@ function Payment() {
                   <button
                     className="btn text-white"
                     style={{ backgroundColor: "#2395FF", width: "600px" }}
+                    onClick={handleData}
                   >
                     Try it free for 30 days
                   </button>

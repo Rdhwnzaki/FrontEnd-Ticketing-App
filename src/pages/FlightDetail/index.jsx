@@ -1,13 +1,18 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import style from "./flightdetail.module.css";
 import assets from "../../assets";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+// eslint-disable-next-line no-unused-vars
+import { async } from "q";
 
 const FlightDetail = () => {
   const navigate = useNavigate();
 
   const [data, setData] = useState([]);
+  const [dataTicket, setDataTicket] = useState([]);
   const { id } = useParams();
 
   const [title, setTitle] = useState("");
@@ -17,6 +22,7 @@ const FlightDetail = () => {
   const [price, setPrice] = useState("");
   const [u_id, setU_id] = useState("");
   const [uuid, setUuid] = useState("");
+  const [id_ticket, setId_ticket] = useState("");
 
   var token = localStorage.getItem("token");
   var user_id = localStorage.getItem("user_id");
@@ -44,10 +50,29 @@ const FlightDetail = () => {
     }
   };
 
+  const getDataTicket = async (url2) => {
+    try {
+      const res2 = await axios.get(url2, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setDataTicket(res2.data.data);
+      const plusTicket = res2.data.data.length + 1;
+      console.log(plusTicket);
+      setId_ticket(plusTicket);
+      console.log(res2.data.data);
+      console.log(id_ticket);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   useEffect(() => {
     let url = `https://gentle-tights-jay.cyclic.app/stock-ticket/getstockticket/${id}`;
     getDetailData(url);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    let url2 = `http://localhost:3006/ticket/get-all-ticket`;
+    getDataTicket(url2);
   }, []);
 
   console.log(stock, price, u_id, uuid);
@@ -57,24 +82,32 @@ const FlightDetail = () => {
 
   const handlerPassenger = async (e) => {
     e.preventDefault();
+    let form = {
+      id: id_ticket,
+      detail_user: title,
+      custommer_name: fullname,
+      nationality: nationality,
+      user_id: u_id,
+      uuid: uuid,
+      total_price: price,
+    };
     try {
-      const data = new FormData();
-      data.append("datail_user", title);
-      data.append("custommer_name", fullname);
-      data.append("nationality", nationality);
-      data.append("user_id", u_id);
-      data.append("uuid", uuid);
-      data.append("total_price", price);
-      await axios.post(`https://gentle-tights-jay.cyclic.app/ticket/post-ticket`, data, {
-        headers: {
-          "content-type": "multipart/form-data",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const { data: data_ticket } = await axios.post(
+        `http://localhost:3006/ticket/post-ticket`,
+        form,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log(data_ticket);
+      console.log("id_ticket", id_ticket);
+
       localStorage.setItem("stock", afterstock);
       localStorage.setItem("price", price);
       localStorage.setItem("id_stock", id);
-      navigate("/payment/:id");
+      navigate(`/payment/${id_ticket}`);
       console.log("Success create to payment");
     } catch (err) {
       console.log(err);
