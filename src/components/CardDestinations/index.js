@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import Assets from "../../images";
 import "./index.css";
 import { Swiper, SwiperSlide } from "swiper/react";

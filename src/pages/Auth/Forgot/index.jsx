@@ -2,7 +2,7 @@ import React from "react";
 import assets from "../../../assets";
 import Illustration from "../../../components/Illustration";
 import style from "./forgot.module.css";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const Forgot = () => {
   return (

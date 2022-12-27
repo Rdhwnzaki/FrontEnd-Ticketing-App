@@ -47,6 +47,7 @@ const FlightDetail = () => {
   useEffect(() => {
     let url = `http://localhost:3006/stock-ticket/getstockticket/${id}`;
     getDetailData(url);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   console.log(stock, price, u_id, uuid);
