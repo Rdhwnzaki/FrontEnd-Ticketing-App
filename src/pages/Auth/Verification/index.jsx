@@ -22,6 +22,13 @@ const Verification = () => {
     };
     dispatch(verificationAccount(data, navigate));
   };
+  const handleChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleChange2 = (e) => {
+    setOtp(e.target.value);
+  };
 
   return (
     <div className={style.customBasis}>
@@ -36,10 +43,22 @@ const Verification = () => {
         <form onSubmit={handleVerification} className={style.rightBody}>
           <h4>Verification OTP</h4>
           <div className="mt-3">
-            <input type="email" name="email" id="email" placeholder="Email" />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email"
+              onChange={handleChange}
+            />
           </div>
           <div>
-            <input type="text" name="otp" id="otp" placeholder="Otp" />
+            <input
+              type="text"
+              name="otp"
+              id="otp"
+              placeholder="Otp"
+              onChange={handleChange2}
+            />
           </div>
           <button type="submit">Verification</button>
         </form>
