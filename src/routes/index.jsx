@@ -45,7 +45,7 @@ const Router = () => {
         <Route path="/profile" element={<PrivateRoute />}>
           <Route index element={<Profile />} />
         </Route>
-        <Route path="/bookingpass" element={<PrivateRoute />}>
+        <Route path="/bookingpass/:id" element={<PrivateRoute />}>
           <Route index element={<BookingPass />} />
         </Route>
         <Route path="/mybooking" element={<PrivateRoute />}>

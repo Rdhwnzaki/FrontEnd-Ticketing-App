@@ -7,10 +7,12 @@ import "./index.css";
 import Assets from "../../images";
 import axios from "axios";
 import CardProfile from "../../components/CardProfile";
+import { useNavigate } from "react-router-dom";
 
 function MyBooking() {
   const [data, setData] = useState(null);
   const token = localStorage.getItem("token");
+  const navigate = useNavigate();
   const user = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -73,7 +75,7 @@ function MyBooking() {
                       </div>
                     </div>
                     <h6 className="text-secondary text-start">
-                      Garuda Indonesia, AB-221
+                      {item.name},{item.code}
                     </h6>
                     <hr />
                     <div className="row align-items-center">
@@ -84,6 +86,10 @@ function MyBooking() {
                         {item.detail === "Waiting for payment" ? (
                           <button
                             className="btn"
+                            key={item.stock_id}
+                            onClick={() =>
+                              navigate(`/payment/${item.stock_id}`)
+                            }
                             style={{
                               backgroundColor: "#FF7F23",
                               color: "white",
@@ -94,6 +100,10 @@ function MyBooking() {
                         ) : (
                           <button
                             className="btn"
+                            key={item.stock_id}
+                            onClick={() =>
+                              navigate(`/bookingpass/${item.stock_id}`)
+                            }
                             style={{
                               backgroundColor: "#4FCF4D",
                               color: "white",
