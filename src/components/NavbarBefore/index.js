@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Assets from "../../images";
 import ModalFind from "../Modal";
 
@@ -26,21 +27,28 @@ function Navbar() {
             <ModalFind />
           </div>
           <div className="col-md-2">
-            <h6>My Booking</h6>
+            <Link
+              to="/mybooking"
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <h6>My Booking</h6>
+            </Link>
           </div>
           <div className="col-md-3">
-            <button
-              className="btn shadow"
-              style={{
-                backgroundColor: "#2395FF",
-                color: "white",
-                width: "140px",
-                height: "45px",
-                marginLeft: "190px",
-              }}
-            >
-              Sign Up
-            </button>
+            <Link to="/register">
+              <button
+                className="btn shadow"
+                style={{
+                  backgroundColor: "#2395FF",
+                  color: "white",
+                  width: "140px",
+                  height: "45px",
+                  marginLeft: "190px",
+                }}
+              >
+                Sign Up
+              </button>
+            </Link>
           </div>
         </div>
       </div>

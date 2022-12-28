@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Assets from "../../images";
 import ModalFind from "../Modal";
 
@@ -26,7 +27,12 @@ function NavbarAfter() {
             <ModalFind />
           </div>
           <div className="col-md-2">
-            <h6>My Booking</h6>
+            <Link
+              to="/mybooking"
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <h6>My Booking</h6>
+            </Link>
           </div>
           <div className="col-md-1">
             <button className="btn">
@@ -39,13 +45,15 @@ function NavbarAfter() {
             </button>
           </div>
           <div className="col-md-1">
-            <button className="btn">
-              <img
-                src={Assets.prof}
-                alt=""
-                style={{ borderRadius: "50%", border: "3px solid #2395FF" }}
-              />
-            </button>
+            <Link to="/profile">
+              <button className="btn">
+                <img
+                  src={Assets.prof}
+                  alt=""
+                  style={{ borderRadius: "50%", border: "3px solid #2395FF" }}
+                />
+              </button>
+            </Link>
           </div>
         </div>
       </div>

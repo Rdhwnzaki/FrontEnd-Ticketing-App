@@ -142,7 +142,7 @@ function Payment() {
                   </p>
                 </div>
                 <div className="col-md-1 offset-4">
-                  <h6>$ {price}</h6>
+                  <span>$ {price}</span>
                   <h6
                     style={{
                       fontSize: "10px",

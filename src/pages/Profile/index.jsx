@@ -15,6 +15,8 @@ import rowblue from "../../assets/blue.png";
 import rowgrey from "../../assets/grey.png";
 import rowred from "../../assets/red.png";
 import Footer from "../../components/Footer";
+import Navbar from "../../components/NavbarBefore";
+import NavbarAfter from "../../components/NavbarAfter";
 
 function Profile() {
   const [data, setData] = useState([]);
@@ -138,6 +140,7 @@ function Profile() {
 
   return (
     <div>
+      {token ? <NavbarAfter /> : <Navbar />}
       <div className={styles.container}>
         <div className={styles.profile}>
           <div className={styles.side1}>

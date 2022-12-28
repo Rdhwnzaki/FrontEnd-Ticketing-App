@@ -7,7 +7,7 @@ const Main = () => {
   const navigate = useNavigate();
 
   const handleMain = () => {
-    navigate("/register");
+    navigate("/explore");
   };
   return (
     <div className={style.customSplash}>

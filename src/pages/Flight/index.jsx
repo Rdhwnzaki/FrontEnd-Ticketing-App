@@ -5,6 +5,7 @@ import assets from "../../assets";
 // import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Flight = () => {
   const navigate = useNavigate();
@@ -81,7 +82,9 @@ const Flight = () => {
         </div>
         <div className={style.navRoute}>
           <div>Find ticket</div>
-          <div>My booking</div>
+          <Link to="/mybooking" style={{ textDecoration: "none" }}>
+            <div>My booking</div>
+          </Link>
         </div>
         <div className={style.navProfile}>
           <div>

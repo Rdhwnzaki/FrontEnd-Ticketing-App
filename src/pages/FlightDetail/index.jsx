@@ -7,6 +7,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 // eslint-disable-next-line no-unused-vars
 import { async } from "q";
+import { Link } from "react-router-dom";
 
 const FlightDetail = () => {
   const navigate = useNavigate();
@@ -90,6 +91,7 @@ const FlightDetail = () => {
       user_id: u_id,
       uuid: uuid,
       total_price: price,
+      stock_id: id,
     };
     try {
       const { data: data_ticket } = await axios.post(
@@ -103,7 +105,7 @@ const FlightDetail = () => {
       );
       console.log(data_ticket);
       console.log("id_ticket", id_ticket);
-
+      console.log("stock_id", id);
       localStorage.setItem("stock", afterstock);
       localStorage.setItem("price", price);
       localStorage.setItem("id_stock", id);
@@ -126,7 +128,9 @@ const FlightDetail = () => {
         </div>
         <div className={style.navRoute}>
           <div>Find ticket</div>
-          <div>My booking</div>
+          <Link to="/mybooking" style={{ textDecoration: "none" }}>
+            <div>My booking</div>
+          </Link>
         </div>
         <div className={style.navProfile}>
           <div>
