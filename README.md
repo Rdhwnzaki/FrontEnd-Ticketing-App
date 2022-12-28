@@ -75,19 +75,19 @@ npm install
 
 | Landing/Explore Page | Flight Page |
 | ------------- | ------------- |
-| ![Landing](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/landing.png "Landing/Explore Page") | ![Flight](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/flight.png "Flight Page")|
+| ![Landing](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/landing.jpg "Landing/Explore Page") | ![Flight](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/flight.jpg "Flight Page")|
 
 | Flight Detail Page | Payment Page |
 | ------------- | ------------- |
-| ![Flight Detail](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/flight_detail.png "Flight Detail Page") | ![Payment](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/payment.png "Payment Page")|
+| ![Flight Detail](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/detail_flight.jpg "Flight Detail Page") | ![Payment](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/payment.jpg "Payment Page")|
 
 | My Booking Page | Bookingpass Page |
 | ------------- | ------------- |
-| ![My Booking](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/mybooking.png "My Booking Page") | ![Bookingpass](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/bookingpass.png "Bookingpass Page")|
+| ![My Booking](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/mybooking.jpg "My Booking Page") | ![Bookingpass](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/bookingpass.jpg "Bookingpass Page")|
 
 | Profile Page |
 | ------------- |
-| ![Profile](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/profile.png "Profile Page")
+| ![Profile](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/profile.jpg "Profile Page")
 
 ## Backend Project
 - [`BACKEND ANKASA TICKETING`](https://github.com/Rdhwnzaki/BackEnd-Ticketing-App)
@@ -112,8 +112,8 @@ npm install
       </td>
       <td align="center">
         <a href="https://github.com/Fanani23">
-          <img width="150" src="https://avatars.githubusercontent.com/u/99703360?v=4" alt="Prammudia Syahrul Fanani"><br/>
-          <b>Prammudia Syahrul Fanani</b>
+          <img width="150" src="https://avatars.githubusercontent.com/u/99703360?v=4" alt="Pramudia Syahrul Fanani"><br/>
+          <b>Pramudia Syahrul Fanani</b>
         </a>
       </td>
       <td align="center">
@@ -136,8 +136,8 @@ npm install
       </td>
       <td align="center">
         <a href="https://github.com/giansandi025">
-          <img width="150" src="https://avatars.githubusercontent.com/u/109684038?v=4" alt="Gian EdriSandi"><br/>
-          <b>Gian EdriSandi</b>
+          <img width="150" src="https://avatars.githubusercontent.com/u/109684038?v=4" alt="Gian Edrisandi"><br/>
+          <b>Gian Edrisandi</b>
         </a>
       </td>
     </tr>
