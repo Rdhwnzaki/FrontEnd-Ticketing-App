@@ -71,7 +71,7 @@ npm install
 
 | Login Page | Forgot Password Page |
 | ------------- | ------------- |
-| ![Login](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/assets/login.jpg "Login Page") | ![Forgot Password](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/forgot.jpg "Forgot Password Page")|
+| ![Login](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/login.jpg "Login Page") | ![Forgot Password](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/forgot.jpg "Forgot Password Page")|
 
 | Landing/Explore Page | Flight Page |
 | ------------- | ------------- |
@@ -112,13 +112,13 @@ npm install
       </td>
       <td align="center">
         <a href="https://github.com/Fanani23">
-          <img width="150" src="https://avatars.githubusercontent.com/u/103256648?v=4" alt="Prammudia Syahrul Fanani"><br/>
+          <img width="150" src="https://avatars.githubusercontent.com/u/99703360?v=4" alt="Prammudia Syahrul Fanani"><br/>
           <b>Prammudia Syahrul Fanani</b>
         </a>
       </td>
       <td align="center">
         <a href="https://github.com/IrfanJulian">
-          <img width="150" src="https://avatars.githubusercontent.com/u/99703360?v=4" alt="Irfan Julian Ibrahim"><br/>
+          <img width="150" src="https://avatars.githubusercontent.com/u/103256648?v=4" alt="Irfan Julian Ibrahim"><br/>
           <b>Irfan Julian Ibrahim</b>
         </a>
       </td>
