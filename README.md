@@ -67,11 +67,11 @@ npm install
 ## Screenshots
 | Register Page | Verification Page |
 | ------------- | ------------- |
-| ![Register](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/register.png "Register Page") | ![Verification](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/verification.png "Verification Page")|
+| ![Register](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/register.jpg "Register Page") | ![Verification](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/verification.jpg "Verification Page")|
 
 | Login Page | Forgot Password Page |
 | ------------- | ------------- |
-| ![Login](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/assets/login.png "Login Page") | ![Forgot Password](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/forgot.png "Forgot Password Page")|
+| ![Login](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/assets/login.jpg "Login Page") | ![Forgot Password](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/forgot.jpg "Forgot Password Page")|
 
 | Landing/Explore Page | Flight Page |
 | ------------- | ------------- |
