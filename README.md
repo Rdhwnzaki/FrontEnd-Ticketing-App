@@ -1,70 +1,150 @@
-# Getting Started with Create React App
+<h1 align="center">ANKASA TICKETING</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <img height="150" src="https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/logo.png"  />
+</p>
+ <p align="center">
+    Explore the world and find your ticket with ankasa.
+  </p>
 
-## Available Scripts
+<!-- TABLE OF CONTENTS -->
+ ## Table of Contents
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built with</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#screenshoots">Screenshots</a></li>
+    <li><a href="#backend-project">Backend Project</a></li>
+    <li><a href="#our-team">Our Team</a></li>
+    <li><a href="#license">License</a></li>
+  </ol>
+</details>
 
-In the project directory, you can run:
+### About The Project
+ANKASA TICKETING is an application that provides various features for website-based online flight ticket bookings. Ankasa Ticketing is made by the Caffeine team.
 
-### `npm start`
+## Built With
+This app was built with some technologies below:
+- [React Js](https://(https://reactjs.org)/)
+- [Bootstrap](https://www.npmjs.com/package/bootstrap)
+- [Sweetalert2](https://www.npmjs.com/package/sweetalert2)
+- [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+- [Redux](https://www.npmjs.com/package/redux)
+- [React-redux](https://www.npmjs.com/package/react-redux)
+- [Redux-logger](https://www.npmjs.com/package/redux-logger)
+- [Redux-thunk](https://www.npmjs.com/search?q=redux-thunk)
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS?retiredLocale=id)
+- [Javascript](https://www.javascript.com/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<!-- GETTING STARTED -->
+### Getting Started
+## Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Clone This Front End Repo
+```
+git clone https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App.git
+```
+- Go To Folder Repo
+```
+cd FrontEnd-Ticketing-App
+```
+- Install Module
+```
+npm install
+```
 
-### `npm test`
+## Screenshots
+| Register Page | Verification Page |
+| ------------- | ------------- |
+| ![Register](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/register.png "Register Page") | ![Verification](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/verification.png "Verification Page")|
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Login Page | Forgot Password Page |
+| ------------- | ------------- |
+| ![Login](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/assets/login.png "Login Page") | ![Forgot Password](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/forgot.png "Forgot Password Page")|
 
-### `npm run build`
+| Landing/Explore Page | Flight Page |
+| ------------- | ------------- |
+| ![Landing](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/landing.png "Landing/Explore Page") | ![Flight](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/flight.png "Flight Page")|
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Flight Detail Page | Payment Page |
+| ------------- | ------------- |
+| ![Flight Detail](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/flight_detail.png "Flight Detail Page") | ![Payment](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/payment.png "Payment Page")|
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+| My Booking Page | Bookingpass Page |
+| ------------- | ------------- |
+| ![My Booking](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/mybooking.png "My Booking Page") | ![Bookingpass](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/bookingpass.png "Bookingpass Page")|
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+| Profile Page |
+| ------------- |
+| ![Profile](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/profile.png "Profile Page")
 
-### `npm run eject`
+## Backend Project
+- [`BACKEND ANKASA TICKETING`](https://github.com/Rdhwnzaki/BackEnd-Ticketing-App)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Our Team
+<center>
+  <table>
+    <tr>
+      <th>Frontend/PO</th>
+      <th>Frontend</th>
+      <th>Frontend</th>
+      <th>Frontend</th>
+      <th>Backend</th>
+      <th>Backend</th>
+    </tr>
+    <tr>
+      <td align="center">
+        <a href="https://github.com/Rdhwnzaki">
+          <img width="150" style="background-size: contain;" src="https://avatars.githubusercontent.com/u/114749223?v=4" alt="Ridhwan Muhammad Zaki"><br/>
+          <b>Ridhwan Muhammad Zaki</b>
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/Fanani23">
+          <img width="150" src="https://avatars.githubusercontent.com/u/103256648?v=4" alt="Prammudia Syahrul Fanani"><br/>
+          <b>Prammudia Syahrul Fanani</b>
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/IrfanJulian">
+          <img width="150" src="https://avatars.githubusercontent.com/u/99703360?v=4" alt="Irfan Julian Ibrahim"><br/>
+          <b>Irfan Julian Ibrahim</b>
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/Lidiya135">
+          <img width="150" src="https://avatars.githubusercontent.com/u/105529138?v=4" alt="Lidiya Wati"><br/>
+          <b>Lidiya Wati</b>
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/RizRev">
+          <img width="150" src="https://avatars.githubusercontent.com/u/114935602?v=4" alt="Achmad Rizky Revanda"><br/>
+          <b>Achmad Rizky Revanda</b>
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/giansandi025">
+          <img width="150" src="https://avatars.githubusercontent.com/u/109684038?v=4" alt="Gian EdriSandi"><br/>
+          <b>Gian EdriSandi</b>
+        </a>
+      </td>
+    </tr>
+  </table>
+</center>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## License
+Distributed under the [MIT](/LICENSE) License.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p align="right">(<a href="#top">back to top</a>)</p>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
+import { useParams } from "react-router-dom";
 import styles from "./tiket.module.css";
 import barcod from "../../assets/bar.png";
 import plane from "../../assets/plane.png";
@@ -9,20 +10,30 @@ import titik from "../../assets/titik.png";
 export default function Ticket() {
 
     const [data, setData] = useState([]);
-
+    const token = localStorage.getItem("token");
+    const { id } = useParams();
+    const user = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+  
     useEffect(() => {
-        axios
-        .get(`http://localhost:3006/stock-ticket/getstockticket`)
-        .then ((res) => {
+      axios
+        .get(
+          `https://gentle-tights-jay.cyclic.app/stock-ticket/getstockticket/${id}`,
+          user
+        )
+        .then((res) => {
           console.log("get data succes");
           console.log(res.data);
-          res.data && setData(res.data.data[3]);
+          res.data && setData(res.data.data[0]);
         })
         .catch((err) => {
           console.log("get data fail");
           console.log(err);
         });
-      }, [])
+    }, []);
 
   return (
     <div className={styles.page}>
