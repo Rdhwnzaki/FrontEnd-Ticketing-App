@@ -28,11 +28,15 @@ function Payment() {
       stock: stock,
     };
     try {
-      await axios.put(`http://localhost:3006/stock-ticket/edit-stock`, data, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      await axios.put(
+        `${process.env.REACT_APP_MY_API_KEY}/stock-ticket/edit-stock`,
+        data,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
     } catch (err) {
       console.log(err);
     }
@@ -41,7 +45,7 @@ function Payment() {
     };
     try {
       await axios.put(
-        `http://localhost:3006/ticket/put-ticket/${id}`,
+        `${process.env.REACT_APP_MY_API_KEY}/ticket/put-ticket/${id}`,
         dataStatus,
         {
           headers: {

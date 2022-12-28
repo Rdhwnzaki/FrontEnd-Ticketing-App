@@ -36,7 +36,7 @@ const Login = () => {
       <div className={style.basisRight}>
         <div className={style.rightHeader}>
           <img src={assets.flight} alt="" />
-          <p>Afaantu</p>
+          <p>Ankasa</p>
         </div>
         <form onSubmit={handleLogin} className={style.rightBody}>
           <h4>Login</h4>

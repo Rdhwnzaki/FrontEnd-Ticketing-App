@@ -38,7 +38,7 @@ const Verification = () => {
       <div className={style.basisRight}>
         <div className={style.rightHeader}>
           <img src={assets.flight} alt="" />
-          <p>Afaantu</p>
+          <p>Ankasa</p>
         </div>
         <form onSubmit={handleVerification} className={style.rightBody}>
           <h4>Verification OTP</h4>

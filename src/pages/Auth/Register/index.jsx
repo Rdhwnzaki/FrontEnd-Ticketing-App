@@ -39,7 +39,7 @@ const Register = () => {
       <div className={style.basisRight}>
         <div className={style.rightHeader}>
           <img src={assets.flight} alt="" />
-          <p>Afaantu</p>
+          <p>Ankasa</p>
         </div>
         <form onSubmit={handleRegister} className={style.rightBody}>
           <h4>Register</h4>

@@ -24,7 +24,7 @@ export default function Ticket() {
   useEffect(() => {
     axios
       .get(
-        `https://gentle-tights-jay.cyclic.app/stock-ticket/getstockticket/${id}`,
+        `${process.env.REACT_APP_MY_API_KEY}/stock-ticket/getstockticket/${id}`,
         user
       )
       .then((res) => {

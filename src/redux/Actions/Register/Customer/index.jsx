@@ -5,7 +5,7 @@ export const registerCustomer = (data, navigate) => async (dispatch) => {
   try {
     dispatch({ type: "CUSTOMER_REGISTER_PENDING" });
     const res = await axios.post(
-      `https://gentle-tights-jay.cyclic.app/auth/register`,
+      `${process.env.REACT_APP_MY_API_KEY}/auth/register`,
       data
     );
     const customer = res.data.data;

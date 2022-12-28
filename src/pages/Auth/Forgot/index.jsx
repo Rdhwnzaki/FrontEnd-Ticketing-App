@@ -13,7 +13,7 @@ const Forgot = () => {
       <div className={style.basisRight}>
         <div className={style.rightHeader}>
           <img src={assets.flight} alt="" />
-          <p>Afaantu</p>
+          <p>Ankasa</p>
         </div>
         <form className={style.rightBody}>
           <h4>Forgot Password</h4>

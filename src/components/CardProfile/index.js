@@ -16,7 +16,7 @@ function CardProfile() {
   };
   useEffect(() => {
     axios
-      .get("https://gentle-tights-jay.cyclic.app/auth/user", user)
+      .get(`${process.env.REACT_APP_MY_API_KEY}/auth/user`, user)
       .then((res) => {
         console.log("Get detail user success");
         console.log(res.data);
@@ -78,9 +78,7 @@ function CardProfile() {
         className="btn mt-3"
         style={{ backgroundColor: "#2395FF", width: "280px" }}
       >
-        <h6 className="text-white text-start">
-          {data ? data[0].phone : "data not found"}
-        </h6>
+        <h6 className="text-white text-start">4441 1235 5512 5551</h6>
         <div className="row">
           <div className="col-3">
             <h6 style={{ fontSize: "10px", color: "#AEFAFF" }}>X Card</h6>

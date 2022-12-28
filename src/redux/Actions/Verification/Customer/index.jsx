@@ -5,7 +5,7 @@ export const verificationAccount = (data, navigate) => async (dispatch) => {
   try {
     dispatch({ type: "VERIFICATION_PENDING" });
     const res = await axios.post(
-      `https://gentle-tights-jay.cyclic.app/auth/verification`,
+      `${process.env.REACT_APP_MY_API_KEY}/auth/verification`,
       data
     );
     const otp = res.data.data;

@@ -4,7 +4,7 @@ export const getSearchFlight = () => async (dispatch) => {
   try {
     dispatch({ type: "GET_FLIGHT_PENDING" });
     const res = await axios.get(
-      `https://gentle-tights-jay.cyclic.app/ticket/getstockticket`
+      `${process.env.REACT_APP_MY_API_KEY}/ticket/getstockticket`
     );
     const flight = res.data.data;
     console.log(flight, "data flight");

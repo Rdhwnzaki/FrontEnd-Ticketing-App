@@ -30,7 +30,7 @@ function Profile() {
   // get Data
   useEffect(() => {
     axios
-      .get("https://gentle-tights-jay.cyclic.app/auth/user", user)
+      .get(`${process.env.REACT_APP_MY_API_KEY}/auth/user`, user)
       .then((res) => {
         console.log("get data succes");
         console.log(res.data);
@@ -85,14 +85,9 @@ function Profile() {
     formData.append("photo", photo);
     console.log(formData);
     axios
-      .put(
-        `https://gentle-tights-jay.cyclic.app/auth/update`,
-        formData,
-        users,
-        {
-          "content-type": "multipart/form-data",
-        }
-      )
+      .put(`${process.env.REACT_APP_MY_API_KEY}/auth/update`, formData, users, {
+        "content-type": "multipart/form-data",
+      })
       .then((res) => {
         console.log("Update profile succes");
         console.log(res);
@@ -121,7 +116,7 @@ function Profile() {
     console.log(formData, "data dari handle photo update");
     axios
       .put(
-        `https://gentle-tights-jay.cyclic.app/auth/edit-photo`,
+        `${process.env.REACT_APP_MY_API_KEY}/auth/edit-photo`,
         formData,
         users,
         {

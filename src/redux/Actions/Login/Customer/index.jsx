@@ -6,7 +6,7 @@ export const loginCustomer = (data, navigate) => async (dispatch) => {
     console.log(data);
     dispatch({ type: "CUSTOMER_LOGIN_PENDING" });
     const res = await axios.post(
-      `https://gentle-tights-jay.cyclic.app/auth/login`,
+      `${process.env.REACT_APP_MY_API_KEY}/auth/login`,
       data
     );
     const customer = res.data.data;
