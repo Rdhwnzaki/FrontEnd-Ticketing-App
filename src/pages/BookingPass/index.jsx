@@ -20,7 +20,6 @@ export default function Ticket() {
       Authorization: `Bearer ${token}`,
     },
   };
-
   useEffect(() => {
     axios
       .get(
