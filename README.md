@@ -8,7 +8,9 @@
   </p>
 
 <!-- TABLE OF CONTENTS -->
- ## Table of Contents
+
+## Table of Contents
+
 <details>
   <summary>Table of Contents</summary>
   <ol>
@@ -32,11 +34,14 @@
 </details>
 
 ### About The Project
+
 ANKASA TICKETING is an application that provides various features for website-based online flight ticket bookings. Ankasa Ticketing is made by the Caffeine team.
 
 ## Built With
+
 This app was built with some technologies below:
-- [React Js](https://(https://reactjs.org)/)
+
+- [React Js](https://reactjs.org)
 - [Bootstrap](https://www.npmjs.com/package/bootstrap)
 - [Sweetalert2](https://www.npmjs.com/package/sweetalert2)
 - [react-router-dom](https://www.npmjs.com/package/react-router-dom)
@@ -48,51 +53,62 @@ This app was built with some technologies below:
 - [Javascript](https://www.javascript.com/)
 
 <!-- GETTING STARTED -->
+
 ### Getting Started
+
 ## Installation
 
 - Clone This Front End Repo
+
 ```
 git clone https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App.git
 ```
+
 - Go To Folder Repo
+
 ```
 cd FrontEnd-Ticketing-App
 ```
+
 - Install Module
+
 ```
 npm install
 ```
 
 ## Screenshots
-| Register Page | Verification Page |
-| ------------- | ------------- |
-| ![Register](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/register.jpg "Register Page") | ![Verification](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/verification.jpg "Verification Page")|
 
-| Login Page | Forgot Password Page |
-| ------------- | ------------- |
-| ![Login](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/login.jpg "Login Page") | ![Forgot Password](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/forgot.jpg "Forgot Password Page")|
+| Register Page                                                                                                    | Verification Page                                                                                                            |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| ![Register](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/register.jpg "Register Page") | ![Verification](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/verification.jpg "Verification Page") |
 
-| Landing/Explore Page | Flight Page |
-| ------------- | ------------- |
-| ![Landing](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/landing.jpg "Landing/Explore Page") | ![Flight](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/flight.jpg "Flight Page")|
+| Login Page                                                                                              | Forgot Password Page                                                                                                         |
+| ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| ![Login](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/login.jpg "Login Page") | ![Forgot Password](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/forgot.jpg "Forgot Password Page") |
 
-| Flight Detail Page | Payment Page |
-| ------------- | ------------- |
-| ![Flight Detail](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/detail_flight.jpg "Flight Detail Page") | ![Payment](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/payment.jpg "Payment Page")|
+| Landing/Explore Page                                                                                                  | Flight Page                                                                                                |
+| --------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| ![Landing](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/landing.jpg "Landing/Explore Page") | ![Flight](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/flight.jpg "Flight Page") |
 
-| My Booking Page | Bookingpass Page |
-| ------------- | ------------- |
-| ![My Booking](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/mybooking.jpg "My Booking Page") | ![Bookingpass](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/bookingpass.jpg "Bookingpass Page")|
+| Flight Detail Page                                                                                                              | Payment Page                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| ![Flight Detail](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/detail_flight.jpg "Flight Detail Page") | ![Payment](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/payment.jpg "Payment Page") |
+
+| My Booking Page                                                                                                       | Bookingpass Page                                                                                                          |
+| --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| ![My Booking](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/mybooking.jpg "My Booking Page") | ![Bookingpass](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/bookingpass.jpg "Bookingpass Page") |
 
 | Profile Page |
-| ------------- |
+| ------------ |
+
 | ![Profile](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/profile.jpg "Profile Page")
 
 ## Backend Project
+
 - [`BACKEND ANKASA TICKETING`](https://github.com/Rdhwnzaki/BackEnd-Ticketing-App)
 
 ## Our Team
+
 <center>
   <table>
     <tr>
@@ -145,6 +161,7 @@ npm install
 </center>
 
 ## License
+
 Distributed under the [MIT](/LICENSE) License.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
