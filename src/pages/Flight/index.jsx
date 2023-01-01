@@ -6,6 +6,7 @@ import assets from "../../assets";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Footer from "../../components/Footer";
 // import Typography from "@material-ui/core/Typography";
 // import Slider from "@material-ui/core/Slider";
 
@@ -79,7 +80,7 @@ const Flight = () => {
   };
 
   useEffect(() => {
-    let url = `http://localhost:3006/stock-ticket/getstockticket`;
+    let url = `${process.env.REACT_APP_MY_API_KEY}/stock-ticket/getstockticket`;
     if (limit !== "5") {
       url = `${url}?limit=${limit}`;
     } else {
@@ -156,9 +157,11 @@ const Flight = () => {
           <div>
             <img src={assets.notification} alt="" />
           </div>
-          <div>
-            <img src={assets.navprof} alt="" className={style.navProf} />
-          </div>
+          <Link to="/profile">
+            <div>
+              <img src={assets.navprof} alt="" className={style.navProf} />
+            </div>
+          </Link>
         </div>
       </div>
       <div className={style.basisHead}>
@@ -730,6 +733,7 @@ const Flight = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

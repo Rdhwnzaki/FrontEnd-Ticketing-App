@@ -22,7 +22,10 @@ export default function Ticket() {
   };
   useEffect(() => {
     axios
-      .get(`http://localhost:3006/stock-ticket/getstockticket/${id}`, user)
+      .get(
+        `${process.env.REACT_APP_MY_API_KEY}/stock-ticket/getstockticket/${id}`,
+        user
+      )
       .then((res) => {
         console.log("get data succes");
         console.log(res.data);

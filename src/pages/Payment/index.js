@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
 import NavbarAfter from "../../components/NavbarAfter";
 import Navbar from "../../components/NavbarBefore";
@@ -34,11 +35,15 @@ function Payment() {
       stock: stock,
     };
     try {
-      await axios.put(`http://localhost:3006/stock-ticket/edit-stock`, data, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      await axios.put(
+        `${process.env.REACT_APP_MY_API_KEY}/stock-ticket/edit-stock`,
+        data,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
     } catch (err) {
       console.log(err);
     }
@@ -47,7 +52,7 @@ function Payment() {
     };
     try {
       await axios.put(
-        `http://localhost:3006/ticket/put-ticket/${id}`,
+        `${process.env.REACT_APP_MY_API_KEY}/ticket/put-ticket/${id}`,
         dataStatus,
         {
           headers: {
@@ -68,7 +73,7 @@ function Payment() {
 
     try {
       await axios.post(
-        `http://localhost:3006/payment-info/create`,
+        `${process.env.REACT_APP_MY_API_KEY}/payment-info/create`,
         dataPayment,
         {
           headers: {

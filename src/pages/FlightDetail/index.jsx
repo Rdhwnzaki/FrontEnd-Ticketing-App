@@ -8,6 +8,7 @@ import axios from "axios";
 // eslint-disable-next-line no-unused-vars
 import { async } from "q";
 import { Link } from "react-router-dom";
+import Footer from "../../components/Footer";
 
 const FlightDetail = () => {
   const navigate = useNavigate();
@@ -70,9 +71,9 @@ const FlightDetail = () => {
   };
 
   useEffect(() => {
-    let url = `http://localhost:3006/stock-ticket/getstockticket/${id}`;
+    let url = `${process.env.REACT_APP_MY_API_KEY}/stock-ticket/getstockticket/${id}`;
     getDetailData(url);
-    let url2 = `http://localhost:3006/ticket/get-all-ticket`;
+    let url2 = `${process.env.REACT_APP_MY_API_KEY}/ticket/get-all-ticket`;
     getDataTicket(url2);
   }, []);
 
@@ -95,7 +96,7 @@ const FlightDetail = () => {
     };
     try {
       const { data: data_ticket } = await axios.post(
-        `http://localhost:3006/ticket/post-ticket`,
+        `${process.env.REACT_APP_MY_API_KEY}/ticket/post-ticket`,
         form,
         {
           headers: {
@@ -324,6 +325,7 @@ const FlightDetail = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
