@@ -6,6 +6,8 @@ import assets from "../../assets";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Typography from "@material-ui/core/Typography";
+import Slider from "@material-ui/core/Slider";
 
 const Flight = () => {
   const navigate = useNavigate();
@@ -19,6 +21,7 @@ const Flight = () => {
   const [hargaBawah, setHargaBawah] = useState(1);
   const [deptimeAwal, setDeptimeAwal] = useState("00:00");
   const [deptimeAkhir, setDeptimeAkhir] = useState("23:59");
+  const [price, setPrice] = useState([2, 10]);
 
   const getFlightData = async (url) => {
     let token = localStorage.getItem("token");
@@ -53,6 +56,26 @@ const Flight = () => {
   const deptime1824 = () => {
     setDeptimeAwal("18:00");
     setDeptimeAkhir("23:59");
+  };
+
+  const price1 = () => {
+    setHargaAtas(100);
+    setHargaBawah(1);
+  };
+
+  const price2 = () => {
+    setHargaAtas(200);
+    setHargaBawah(100);
+  };
+
+  const price3 = () => {
+    setHargaAtas(300);
+    setHargaBawah(200);
+  };
+
+  const price4 = () => {
+    setHargaAtas(400);
+    setHargaBawah(300);
   };
 
   useEffect(() => {
@@ -97,6 +120,11 @@ const Flight = () => {
 
   const previousPage = () => {
     setPage(page - 1);
+  };
+
+  const rangeSelector = (event, newValue) => {
+    setPrice(newValue);
+    console.log(newValue);
   };
 
   return (
@@ -460,6 +488,107 @@ const Flight = () => {
                             value="Lion Air"
                             onChange={(e) => setSearch(e.target.value)}
                           />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="accordion" id="filter-price">
+                  <div className="accordion-item">
+                    <h2 className="accordion-header" id="header-filter-price">
+                      <button
+                        className="accordion-button"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#data-filter-price"
+                        aria-expanded="true"
+                        aria-controls="data-filter-price"
+                      >
+                        <strong>By Price</strong>
+                      </button>
+                    </h2>
+                    <div
+                      id="data-filter-price"
+                      className="accordion-collapse collapse show"
+                      aria-labelledby="header-filter-price"
+                      data-bs-parent="#filter-price"
+                    >
+                      <div className="accordion-body">
+                        <div className="d-flex flex-row justify-content-between mt-2">
+                          <label for="price1">$ 1 - $ 100</label>
+                          <input
+                            className="form-check-input"
+                            type="radio"
+                            name="filter-price"
+                            id="price1"
+                            onClick={price1}
+                          />
+                        </div>
+                        <div className="d-flex flex-row justify-content-between mt-2">
+                          <label for="price2">$ 100 - $ 200</label>
+                          <input
+                            className="form-check-input"
+                            type="radio"
+                            name="filter-price"
+                            id="price2"
+                            onClick={price2}
+                          />
+                        </div>
+                        <div className="d-flex flex-row justify-content-between mt-2">
+                          <label for="price3">$ 200 - $ 300</label>
+                          <input
+                            className="form-check-input"
+                            type="radio"
+                            name="filter-price"
+                            id="price3"
+                            onClick={price3}
+                          />
+                        </div>
+                        <div className="d-flex flex-row justify-content-between mt-2">
+                          <label for="price4">$ 300 - $ 400</label>
+                          <input
+                            className="form-check-input"
+                            type="radio"
+                            name="filter-price"
+                            id="price4"
+                            onClick={price4}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="accordion" id="price">
+                  <div className="accordion-item">
+                    <h2 className="accordion-header" id="header-price">
+                      <button
+                        className="accordion-button"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#data-price"
+                        aria-expanded="true"
+                        aria-controls="data-price"
+                      >
+                        <strong>Price</strong>
+                      </button>
+                    </h2>
+                    <div
+                      id="data-price"
+                      className="accordion-collapse collapse show"
+                      aria-labelledby="header-price"
+                      data-bs-parent="#price"
+                    >
+                      <div className="accordion-body">
+                        <div className="d-flex flex-column justify-content-between mt-2">
+                          <Typography id="range-slider" gutterBottom>
+                            Select Price Range:
+                          </Typography>
+                          <Slider
+                            value={price}
+                            onChange={rangeSelector}
+                            valueLabelDisplay="auto"
+                          />
+                          Your range {price[0]} and {price[1]}
                         </div>
                       </div>
                     </div>
