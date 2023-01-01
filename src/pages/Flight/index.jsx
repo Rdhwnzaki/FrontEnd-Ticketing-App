@@ -6,8 +6,8 @@ import assets from "../../assets";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Typography from "@material-ui/core/Typography";
-import Slider from "@material-ui/core/Slider";
+// import Typography from "@material-ui/core/Typography";
+// import Slider from "@material-ui/core/Slider";
 
 const Flight = () => {
   const navigate = useNavigate();
@@ -580,15 +580,15 @@ const Flight = () => {
                     >
                       <div className="accordion-body">
                         <div className="d-flex flex-column justify-content-between mt-2">
-                          <Typography id="range-slider" gutterBottom>
+                          {/* <Typography id="range-slider" gutterBottom>
                             Select Price Range:
-                          </Typography>
-                          <Slider
+                          </Typography> */}
+                          {/* <Slider
                             value={price}
                             onChange={rangeSelector}
                             valueLabelDisplay="auto"
                           />
-                          Your range {price[0]} and {price[1]}
+                          Your range {price[0]} and {price[1]} */}
                         </div>
                       </div>
                     </div>
