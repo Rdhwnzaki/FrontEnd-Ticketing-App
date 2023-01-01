@@ -20,7 +20,7 @@ function MyBooking() {
   };
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_MY_API_KEY}/ticket/get-ticket-join`, user)
+      .get(`http://localhost:3006/ticket/get-ticket-join`, user)
       .then((res) => {
         console.log("Get detail user success");
         console.log(res.data);

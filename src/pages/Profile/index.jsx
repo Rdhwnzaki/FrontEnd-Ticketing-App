@@ -32,7 +32,7 @@ function Profile() {
   // get Data
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_MY_API_KEY}/auth/user`, user)
+      .get(`http://localhost:3006/auth/user`, user)
       .then((res) => {
         console.log("get data succes");
         console.log(res.data);
@@ -87,7 +87,7 @@ function Profile() {
     formData.append("photo", photo);
     console.log(formData);
     axios
-      .put(`${process.env.REACT_APP_MY_API_KEY}/auth/update`, formData, users, {
+      .put(`http://localhost:3006/auth/update`, formData, users, {
         "content-type": "multipart/form-data",
       })
       .then((res) => {
@@ -117,14 +117,9 @@ function Profile() {
     formData.append("photo", photo);
     console.log(formData, "data dari handle photo update");
     axios
-      .put(
-        `${process.env.REACT_APP_MY_API_KEY}/auth/edit-photo`,
-        formData,
-        users,
-        {
-          "content-type": "multipart/form-data",
-        }
-      )
+      .put(`http://localhost:3006/auth/edit-photo`, formData, users, {
+        "content-type": "multipart/form-data",
+      })
       .then((res) => {
         console.log("update photo succes");
         console.log(res);
