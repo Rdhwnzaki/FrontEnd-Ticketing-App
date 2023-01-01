@@ -15,6 +15,10 @@ const Flight = () => {
   const [search, setSearch] = useState("");
   const [limit, setLimit] = useState(5);
   const [page, setPage] = useState(1);
+  const [hargaAtas, setHargaAtas] = useState(200000000000);
+  const [hargaBawah, setHargaBawah] = useState(1);
+  const [deptimeAwal, setDeptimeAwal] = useState("00:00");
+  const [deptimeAkhir, setDeptimeAkhir] = useState("23:59");
 
   const getFlightData = async (url) => {
     let token = localStorage.getItem("token");
@@ -32,6 +36,25 @@ const Flight = () => {
     }
   };
 
+  const deptime0006 = () => {
+    setDeptimeAwal("00:00");
+    setDeptimeAkhir("06:00");
+  };
+
+  const deptime0612 = () => {
+    setDeptimeAwal("06:00");
+    setDeptimeAkhir("12:00");
+  };
+
+  const deptime1218 = () => {
+    setDeptimeAwal("12:00");
+    setDeptimeAkhir("18:00");
+  };
+  const deptime1824 = () => {
+    setDeptimeAwal("18:00");
+    setDeptimeAkhir("23:59");
+  };
+
   useEffect(() => {
     let url = `http://localhost:3006/stock-ticket/getstockticket`;
     if (limit !== "5") {
@@ -45,8 +68,20 @@ const Flight = () => {
     if (search !== "") {
       url = `${url}&search=${search}`;
     }
+    if (hargaAtas !== 200000000000) {
+      url = `${url}&hargaAtas=${hargaAtas}`;
+    }
+    if (hargaBawah !== 1) {
+      url = `${url}&hargaBawah=${hargaBawah}`;
+    }
+    if (deptimeAwal !== "00:00") {
+      url = `${url}&deptimeAwal=${deptimeAwal}`;
+    }
+    if (deptimeAkhir !== "23:59") {
+      url = `${url}&deptimeAkhir=${deptimeAkhir}`;
+    }
     getFlightData(url);
-  }, [search, limit, page]);
+  }, [search, limit, page, deptimeAwal, deptimeAkhir, hargaAtas, hargaBawah]);
 
   useEffect(() => {
     getFlightData();
@@ -272,35 +307,43 @@ const Flight = () => {
                     >
                       <div className="accordion-body">
                         <div className="d-flex flex-row justify-content-between mt-2">
-                          <span>00:00 - 06:00</span>
+                          <label for="00:00-06:00">00:00 - 06:00</label>
                           <input
                             className="form-check-input"
-                            type="checkbox"
-                            name="filter-checkbox"
+                            type="radio"
+                            name="filter-departure"
+                            id="00:00-06:00"
+                            onClick={deptime0006}
                           />
                         </div>
                         <div className="d-flex flex-row justify-content-between mt-2">
-                          <span>06:00 - 12:00</span>
+                          <label for="06:00-12:00">06:00 - 12:00</label>
                           <input
                             className="form-check-input"
-                            type="checkbox"
-                            name="filter-checkbox"
+                            type="radio"
+                            name="filter-departure"
+                            id="06:00-12:00"
+                            onClick={deptime0612}
                           />
                         </div>
                         <div className="d-flex flex-row justify-content-between mt-2">
-                          <span>12:00 - 18:00</span>
+                          <label for="12:00-18:00">12:00 - 18:00</label>
                           <input
                             className="form-check-input"
-                            type="checkbox"
-                            name="filter-checkbox"
+                            type="radio"
+                            name="filter-departure"
+                            id="12:00-18:00"
+                            onClick={deptime1218}
                           />
                         </div>
                         <div className="d-flex flex-row justify-content-between mt-2">
-                          <span>18:00 - 24:00</span>
+                          <label for="18:00-23:59">18:00 - 23:59</label>
                           <input
                             className="form-check-input"
-                            type="checkbox"
-                            name="filter-checkbox"
+                            type="radio"
+                            name="filter-departure"
+                            id="18:00-23:59"
+                            onClick={deptime1824}
                           />
                         </div>
                       </div>
@@ -392,7 +435,7 @@ const Flight = () => {
                             type="radio"
                             name="airlines"
                             id="garuda"
-                            value="Garuda Indonesia"
+                            value="Garuda"
                             onChange={(e) => setSearch(e.target.value)}
                           />
                         </div>
