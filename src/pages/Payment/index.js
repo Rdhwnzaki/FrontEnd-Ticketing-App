@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import NavbarAfter from "../../components/NavbarAfter";
 import Navbar from "../../components/NavbarBefore";
 import "./index.css";
@@ -21,6 +21,12 @@ function Payment() {
   const price = localStorage.getItem("price");
   const stock = localStorage.getItem("stock");
   const id_stock = localStorage.getItem("id_stock");
+
+  const [credit_name, setCredit_name] = useState("");
+  const [credit_number, setCredit_number] = useState("");
+  const [expired_date, setExpired_date] = useState("");
+  const [cvv, setCvv] = useState("");
+
   const handleData = async (e) => {
     e.preventDefault();
     let data = {
@@ -28,15 +34,11 @@ function Payment() {
       stock: stock,
     };
     try {
-      await axios.put(
-        `${process.env.REACT_APP_MY_API_KEY}/stock-ticket/edit-stock`,
-        data,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      await axios.put(`http://localhost:3006/stock-ticket/edit-stock`, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
     } catch (err) {
       console.log(err);
     }
@@ -45,7 +47,7 @@ function Payment() {
     };
     try {
       await axios.put(
-        `${process.env.REACT_APP_MY_API_KEY}/ticket/put-ticket/${id}`,
+        `http://localhost:3006/ticket/put-ticket/${id}`,
         dataStatus,
         {
           headers: {
@@ -56,6 +58,28 @@ function Payment() {
     } catch (err) {
       console.log(err);
     }
+
+    let dataPayment = {
+      credit_name: credit_name,
+      credit_number: credit_number,
+      expired_date: expired_date,
+      cvv: cvv,
+    };
+
+    try {
+      await axios.post(
+        `http://localhost:3006/payment-info/create`,
+        dataPayment,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+    } catch (err) {
+      console.log(err);
+    }
+
     localStorage.removeItem("id_stock");
     localStorage.removeItem("price");
     localStorage.removeItem("stock");
@@ -112,11 +136,18 @@ function Payment() {
                 type="text"
                 className="form-control"
                 placeholder="0000 0000 0000 0000"
+                value={credit_number}
+                onChange={(e) => setCredit_number(e.target.value)}
               />
               <div className="row mt-4">
                 <div className="col-md-6">
                   <h6>Expiry Date</h6>
-                  <input type="date" className="form-control" />
+                  <input
+                    type="date"
+                    className="form-control"
+                    value={expired_date}
+                    onChange={(e) => setExpired_date(e.target.value)}
+                  />
                 </div>
                 <div className="col-md-6">
                   <h6>CVC/CVV</h6>
@@ -124,6 +155,8 @@ function Payment() {
                     type="text"
                     className="form-control"
                     placeholder="000"
+                    value={cvv}
+                    onChange={(e) => setCvv(e.target.value)}
                   />
                 </div>
               </div>
@@ -157,15 +190,26 @@ function Payment() {
               <hr />
               <div className="row">
                 <div className="col-md-6">
-                  <h6>Refferal Bonouses</h6>
+                  <h6>Bank Choice</h6>
                   <h6 style={{ fontSize: "13px" }}>
-                    Vat
+                    Name of bank
                     <FaRegClock className="ms-2" />
                   </h6>
                 </div>
                 <div className="col-md-1 offset-4">
-                  <h6>-$2.00</h6>
-                  <h6 style={{ fontSize: "13px", marginLeft: "10px" }}>-20%</h6>
+                  <label htmlFor="credit_name">Bank</label>
+                  <select
+                    name="credit_name"
+                    id="credit_name"
+                    value={credit_name}
+                    onChange={(e) => setCredit_name(e.target.value)}
+                  >
+                    <option value="BRI">BRI</option>
+                    <option value="BNI">BNI</option>
+                    <option value="BCA">BCA</option>
+                    <option value="Mandiri">Mandiri</option>
+                    <option value="Other">Other</option>
+                  </select>
                 </div>
               </div>
               <hr />
