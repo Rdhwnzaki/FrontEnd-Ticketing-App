@@ -87,9 +87,7 @@ function MyBooking() {
                           <button
                             className="btn"
                             key={item.stock_id}
-                            onClick={() =>
-                              navigate(`/payment/${item.stock_id}`)
-                            }
+                            onClick={() => navigate(`/payment/${item.id}`)}
                             style={{
                               backgroundColor: "#FF7F23",
                               color: "white",

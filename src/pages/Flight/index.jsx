@@ -24,6 +24,8 @@ const Flight = () => {
   const [deptimeAkhir, setDeptimeAkhir] = useState("23:59");
   const [price, setPrice] = useState([2, 10]);
 
+  console.log(process.env);
+
   const getFlightData = async (url) => {
     let token = localStorage.getItem("token");
     console.log("My token", token);
