@@ -156,17 +156,20 @@ const FlightDetail = () => {
           <div className={style.blContainerTop}>
             <div className={style.blBasisFormTop}>
               <form className={style.blFormTop}>
-                <div>
-                  <label htmlFor="fullname">Full name</label>
-                  <input type="text" name="fullname" value={user_fullname} />
+                <div className="border-bottom">
+                  <div type="text" name="fullname" value={user_fullname}>
+                    <p>{user_fullname}</p>
+                  </div>
                 </div>
-                <div>
-                  <label htmlFor="email">Email</label>
-                  <input type="email" name="email" value={user_email} />
+                <div className="border-bottom">
+                  <div type="email" name="email" value={user_email}>
+                    <p>{user_email}</p>
+                  </div>
                 </div>
-                <div>
-                  <label htmlFor="phone">Phone</label>
-                  <input type="text" name="phone" value={user_phone} />
+                <div className="border-bottom">
+                  <div type="text" name="phone" value={user_phone}>
+                    <p>{user_phone}</p>
+                  </div>
                 </div>
                 <div>
                   <img src={assets.warningbltop} alt="" />
@@ -301,23 +304,21 @@ const FlightDetail = () => {
                   </div>
                   <div className={style.brFormTopSpace}>
                     <img src={assets.ftcheck} alt="" />
-                    <p>
-                      <div>Refundable</div>
-                    </p>
+                    <div>
+                      <p>Refundable</p>
+                    </div>
                   </div>
                   <div className={style.brFormTopSpace}>
                     <img src={assets.ftcheck} alt="" />
-                    <p>
-                      <div>Can reschedule</div>
-                    </p>
+                    <div>
+                      <p>Can reschedule</p>
+                    </div>
                   </div>
                   <div>
-                    <p>
-                      <div>
-                        <p>Total Payment</p>
-                        <div>$ {item.price}</div>
-                      </div>
-                    </p>
+                    <div>
+                      <p>Total Payment</p>
+                      <p>$ {item.price}</p>
+                    </div>
                   </div>
                 </div>
               </div>
