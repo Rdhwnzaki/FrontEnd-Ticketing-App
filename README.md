@@ -100,14 +100,13 @@ npm install
 
 | Profile Page |
 | ------------ |
-
 | ![Profile](https://github.com/Rdhwnzaki/FrontEnd-Ticketing-App/blob/dev-lidiya/ss/profile.jpg "Profile Page")
 
 ## Related Project
 
 - [`BACKEND ANKASA TICKETING`](https://github.com/Rdhwnzaki/BackEnd-Ticketing-App)
 - [`FRONTEND ANKASA TICKETING ADMIN`](https://github.com/IrfanJulian/FrontEnd-Ticketing-Admin-App.git)
-- [`DEMO ANKASA TICKETING CUSTOMER`](https://ticketing-customer-app.up.railway.app)
+- [`DEMO ANKASA TICKETING CUSTOMER`](https://papaya-queijadas-21e94e.netlify.app)
 - [`DEMO ANKASA TICKETING ADMIN`](https://ticketing-admin.up.railway.app)
 
 ## Our Team
