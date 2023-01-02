@@ -268,7 +268,7 @@ const FlightDetail = () => {
           </div>
           <div className={style.brContainerTop}>
             {data.map((item) => (
-              <div className={style.brBasisFormTop}>
+              <div key={item.id} className={style.brBasisFormTop}>
                 <div className={style.brFormTop}>
                   <div>
                     <div>
