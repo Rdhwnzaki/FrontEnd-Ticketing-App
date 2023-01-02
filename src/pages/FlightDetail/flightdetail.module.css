@@ -67,7 +67,7 @@
   flex-direction: row;
   margin: 50px 60px auto auto;
   gap: 40px;
-  justify-content: end;
+  justify-content: flex-end;
 }
 .navProf {
   margin-top: -10px;
