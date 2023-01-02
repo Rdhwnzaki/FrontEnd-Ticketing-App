@@ -26,8 +26,8 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#screenshoots">Screenshots</a></li>
-    <li><a href="#backend-project">Backend Project</a></li>
+    <li><a href="#screenshots">Screenshots</a></li>
+    <li><a href="#related-project">Related Project</a></li>
     <li><a href="#our-team">Our Team</a></li>
     <li><a href="#license">License</a></li>
   </ol>
