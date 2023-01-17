@@ -9,6 +9,8 @@ import { loginCustomer } from "../../../redux/Actions/Login/Customer";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const url = process.env.REACT_APP_MY_API_KEY;
+  // console.log(url);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -25,6 +27,7 @@ const Login = () => {
       email,
       password,
     };
+    console.log(url);
     dispatch(loginCustomer(data, navigate));
   };
 
