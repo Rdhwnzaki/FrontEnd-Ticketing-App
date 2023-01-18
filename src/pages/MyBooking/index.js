@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../../components/NavbarBefore";
 import NavbarAfter from "../../components/NavbarAfter";
 import Footer from "../../components/Footer";
-import "./index.css";
 import Assets from "../../images";
 import axios from "axios";
 import CardProfile from "../../components/CardProfile";
