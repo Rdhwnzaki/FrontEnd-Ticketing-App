@@ -26,7 +26,7 @@ function ModalPhoto() {
     console.log(formData, "data dari handle data update");
     axios
       .put(
-        `https://gentle-tights-jay.cyclic.app/auth/edit-photo`,
+        `${process.env.REACT_APP_MY_API_KEY}/auth/edit-photo`,
         formData,
         user,
         {

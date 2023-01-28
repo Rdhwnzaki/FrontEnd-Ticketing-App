@@ -108,7 +108,7 @@ npm install
 - [`BACKEND ANKASA TICKETING`](https://github.com/Rdhwnzaki/BackEnd-Ticketing-App)
 - [`FRONTEND ANKASA TICKETING ADMIN`](https://github.com/IrfanJulian/FrontEnd-Ticketing-Admin-App.git)
 - [`DEMO ANKASA TICKETING CUSTOMER`](https://caffeine-ankasa-tickecting.netlify.app)
-- [`DEMO ANKASA TICKETING ADMIN`](https://ticketing-admin.up.railway.app)
+- [`DEMO ANKASA TICKETING ADMIN`](https://ticketing-adm.netlify.app)
 
 ## Our Team
 

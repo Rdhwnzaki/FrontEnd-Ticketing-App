@@ -87,7 +87,7 @@ const FlightDetail = () => {
     let form = {
       id: id_ticket,
       detail_user: title,
-      custommer_name: fullname,
+      customer_name: fullname,
       nationality: nationality,
       user_id: u_id,
       uuid: uuid,
